@@ -14,8 +14,16 @@ class CreateCompraItemsTable extends Migration
     public function up()
     {
         Schema::create('compra_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+
+            $table->integer('compra_id')->unsigned();
+            $table->integer('produto_id')->unsigned();
+            
+            $table->decimal('preco_compra',8,2);
+            $table->integer('qtd')->default(0);
+            $table->decimal('subtotal',8,2);
+
+            $table->foreign('compra_id')->references('id')->on('compras');
+            $table->foreign('produto_id')->references('id')->on('produtos');
         });
     }
 

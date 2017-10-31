@@ -15,6 +15,18 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
+            //Opcional codigo do fornecedor 
+            $table->unsignedBigInteger('codigo_fornecedor')->nullable();
+            $table->unsignedBigInteger('codigo_interno')->unique();
+            $table->string('nome')->unique();
+            $table->text('descricao')->nullable();
+            $table->decimal('preco_venda', 8,2);
+            $table->unsignedInteger('estoque')->default(0);
+            $table->unsignedInteger('estoque_min')->default(0);
+            $table->unsignedInteger('categoria_id');
+            $table->unsignedInteger('marca_id');
+            $table->unsignedInteger('compra_id');
+            $table->tinyInteger('flg_ativo')->default(1);
             $table->timestamps();
         });
     }

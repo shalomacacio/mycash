@@ -14,8 +14,17 @@ class CreateVendaItemsTable extends Migration
     public function up()
     {
         Schema::create('venda_items', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+                        
+            $table->integer('venda_id')->unsigned();
+            $table->integer('produto_id')->unsigned();
+            
+            $table->decimal('preco_venda',8,2);
+            $table->integer('qtd')->default(0);
+            $table->decimal('desconto',8,2);
+            $table->decimal('subtotal',8,2);
+
+            $table->foreign('venda_id')->references('id')->on('vendas');
+            $table->foreign('produto_id')->references('id')->on('produtos');
         });
     }
 
