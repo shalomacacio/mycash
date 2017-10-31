@@ -16,3 +16,8 @@
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {return view('welcome');});
+
+Route::group(['prefix'=>'produto'],function(){
+	Route::get('/', 'ProdutoController@index')->name('produto.index');
+	Route::post('/store', 'ProdutoController@index')->name('produto.store');
+});

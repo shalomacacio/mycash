@@ -11,8 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title> Mycash| Starter</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Select 2 -->
-  <link href="{{ asset('plugins/select2/select2.min.css') }}" rel="stylesheet">
+
   <!-- Bootstrap 3.3.6 -->
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Font Awesome -->
@@ -22,20 +21,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link href="{{ asset('dist/css/AdminLTE.min.css') }}" rel="stylesheet">
 
-  <!--Datable CSS -->
-  <link href="{{ asset('plugins/datatables/jquery.dataTables.min.css') }}" rel="stylesheet">
-  <!-- datapicke.css-->
-  <link href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" rel="stylesheet">
-    <!-- fullCalendar 2.2.5-->
-  <link href="{{ asset('plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('plugins/fullcalendar/fullcalendar.print.css') }}" rel="stylesheet"  media="print">
-
   <!--Ajax -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-
-  <!--DatePicker3 -->
-  <link href="{{ asset('plugins/datepicker/datepicker3.css') }}" rel="stylesheet">
-
 
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
@@ -99,26 +86,6 @@ desired effect
 <script type="text/javascript" src="{{ URL::asset('bootstrap/js/bootstrap.min.js') }}"></script> 
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{{ URL::asset('dist/js/app.min.js') }}"></script> 
-<!-- Select2 -->
-<script type="text/javascript" src="{{ URL::asset('plugins/select2/select2.full.min.js') }}"></script> 
-<!-- InputMask -->
-<script type="text/javascript" src="{{ URL::asset('plugins/input-mask/jquery.inputmask.js') }}"></script> 
-<script type="text/javascript" src="{{ URL::asset('plugins/input-mask/jquery.inputmask.date.extensions.js') }}"></script> 
-<script type="text/javascript" src="{{ URL::asset('plugins/input-mask/jquery.inputmask.extensions.js') }}"></script> 
-
-<script type="text/javascript" src="{{ URL::asset('plugins/datepicker/bootstrap-datepicker.js') }}"></script> 
-<script type="text/javascript" src="{{ URL::asset('plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js') }}"></script> 
-<!-- DataTables -->
-<script type="text/javascript" src="{{ URL::asset('plugins/datatables/jquery.dataTables.min.js') }}"></script> 
-
-<!--select 2 -->
-<script type="text/javascript" src="{{ URL::asset('plugins/select2/select2.full.min.js') }}"></script>
-
-<!-- fullCalendar 2.2.5 -->
-<script type="text/javascript" src="{{ URL::asset('plugins/moment/moment.min.js') }}"></script> 
-<script type="text/javascript" src="{{ URL::asset('plugins/fullcalendar/fullcalendar.min.js') }}"></script> 
-
-<!-- Bootstrap JavaScript -->
 
 <!-- App scripts -->
 @stack('scripts')
