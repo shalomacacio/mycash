@@ -25,7 +25,6 @@ class CreateProdutosTable extends Migration
             $table->unsignedInteger('estoque_min')->default(0);
             $table->unsignedInteger('categoria_id');
             $table->unsignedInteger('marca_id');
-            $table->unsignedInteger('compra_id');
             $table->tinyInteger('flg_ativo')->default(1);
             $table->timestamps();
         });
