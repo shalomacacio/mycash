@@ -1,6 +1,6 @@
 
 
-{!! Form::open(['url'=>[route('produto.addMarca')], 'method'=>'post']) !!}
+{!! Form::open(['url'=>[route('produto.addMarca')], 'id'=>'form-marca' ,'method'=>'post']) !!}
 
 	<div class="form-group col-xs-12">
 		{!! Form::label('descricao','Marca') !!}
@@ -15,8 +15,8 @@
 
 	<div class="form-group col-xs-12">
 		<div class="pull-right">
-			{!! Form::button('Criar', ['class'=>'btn btn-primary', 'id'=>'btn_addMarca']) !!}
-			{!! Form::submit('Close', ['class'=>'btn btn-defaut']) !!}
+			{!! Form::submit('Criar', ['class'=>'btn btn-primary', 'id'=>'btn_addMarca']) !!}
+			{!! Form::submit('Close', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
 		</div>
 	</div>
 

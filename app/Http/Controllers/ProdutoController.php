@@ -17,22 +17,25 @@ class ProdutoController extends Controller
 	}
 
 	public function index(){
+		$lista = Produto::where('flg_ativo', 1)->orderBy('nome', 'asc')->paginate(5);
+		return view('produto.index', compact('lista'));
+	}
+
+	public function create(){
 		$marcas = Marca::all()->pluck('descricao', 'id');
 		$categorias = Categoria::all()->pluck('descricao', 'id');
 		$produtos = Produto::where('flg_ativo', 1)->get();
-		return view('produto.index', compact('marcas', 'categorias'));
+		return view('produto.create', compact('marcas', 'categorias'));
 	}
 
 	public function addMarca(Request $request){
 		$input = Marca::create($request->all());
-		$marcas = Marca::all()->pluck('descricao', 'id');
-		return Response::json($marcas);
+		return redirect()->route('produto.create');
 	}
-
+	
 	public function addCategoria(Request $request){
-		$input = $request->all();
-		Categoria::create($input);
-		return view('produto.index');
+		$input = Categoria::create($request->all());
+		return redirect()->route('produto.create');
 	}
 
 	public function store(Request $request){
