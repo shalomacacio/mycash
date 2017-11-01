@@ -1,3 +1,5 @@
+{!! Form::open(['url'=>[route('produto.store')], 'method'=>'post']) !!}
+
 <div class="form-group col-xs-4">
 	{!! Form::label('codigo_interno','Código') !!}
 	<div class="input-group">
@@ -52,9 +54,16 @@
 	</div>
 </div>
 
+<div class="form-group col-xs-6">
+	{!! Form::label('fornecedores[]','Adicionar Fornecedor') !!}
+	{!! Form::select('fornecedores[]', $fornecedores , isset($fornecedores->fornecedores)? $fornecedores->fornecedores : null,  ['class'=>'form-control' ,'multiple'=> 'multiple', 'placeholder' => 'Selecione...'] ) !!}
+</div>
+
 <div class="form-group col-xs-12">
 	<div class="pull-right">
 		{!! Form::submit('Criar', ['class'=>'btn btn-primary']) !!}
 		{!! Form::button('Close', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
 	</div>
 </div>
+
+{!!Form::close() !!}

@@ -3,7 +3,7 @@
     <!-- small box -->
     <div class="small-box bg-blue">
       <div class="inner">
-        <h3>{{  $lista OR 0 }}</h3>
+        <h3>{{ count($lista) OR 0 }}</h3>
         <p>Registros</p>
       </div>
       <div class="icon">

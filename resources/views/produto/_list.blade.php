@@ -9,26 +9,30 @@
          <tr>
           <th><a>CÓD</a></th>
           <th><a>NOME</a></th>
-          <th><a>MARCA</a></th>
           <th><a>CATEGORIA</a></th>
-          <th><a>COMPRA</a></th>
-          <th><a>VENDA</a></th>
-          <th><a>QTD</a></th>
+          <th><a>MARCA</a></th>
+          <th><a>PREÇO</a></th>
+          <th><a>ESTOQUE</a></th>
           <th><a>AÇÃO</a></th>
         </tr>
       </thead>
       <tbody>
         @foreach($lista as $l)
+         @if($l->estoque <= $l->estoque_min)
+          <tr style="color:red" >
+        @else
           <tr>
-            <td>{!! $l->codigo !!}</td>
+        @endif
+            <td>{!! $l->codigo_interno !!}</td>
             <td>{!! $l->nome !!}</td>
-            <td>{!! $l->marca_id!!}</td>
-            <td>{!! $l->categoria_id !!}</td>
-            <td>{!! $l->vlr_compra !!}</td>
+            <td>{!! $l->marca->descricao!!}</td>
+            <td>{!! $l->categoria->descricao !!}</td>
             <td>{!! $l->preco_venda !!}</td>
             <td>{!! $l->estoque !!}</td>
-       
-            <td><a href="{{route('produto.edit', $l->id)}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Editar</a></td>
+            <td>
+              <a href="{{route('produto.create', $l->id)}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
+              <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-retweet"></i></a>
+            </td>
           </tr>
         @endforeach()
       </tbody>

@@ -32,9 +32,8 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-certificate"></i> Cliente </a></li>
-          <li><a href="#"><i class="fa fa-certificate"></i> Fornecedor </a></li>
-          <li><a href="#"><i class="fa fa-certificate"></i> Produto </a></li>
+          <li><a href="#"><i class="fa fa-truck"></i> Fornecedor </a></li>
+          <li><a href="{{route('produto.index')}}"><i class="fa fa-barcode"></i> Produto </a></li>
        </ul>
      </li>
 
@@ -45,7 +44,7 @@
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="#"><i class="fa fa-cart-plus"></i> Compras</a></li>
+      <li><a href="#"><i class="fa fa-shopping-basket"></i> Compras</a></li>
       <li><a href="#"><i class="fa fa-cart-plus"></i> Vendas</a></li>
       <li><a href="#"><i class="fa fa-cart-plus"></i> Pdv</a></li>
     </ul>
@@ -58,8 +57,8 @@
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="#"><i class="fa fa-certificate"></i> Membros</a></li>
-      <li><a href="#"><i class="fa fa-certificate"></i> Membros Por Idade</a></li>
+      <li><a href="#"><i class="fa fa-certificate"></i> Produtos Estoque</a></li>
+      <li><a href="#"><i class="fa fa-certificate"></i> Vendas </a></li>
     </ul>
   </li>
 
