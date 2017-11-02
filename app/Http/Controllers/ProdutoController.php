@@ -11,6 +11,9 @@ use App\Model\Categoria;
 use App\Model\Produto;
 use App\Model\Marca;
 
+use Session;
+use Exception;
+
 class ProdutoController extends Controller
 {
     
@@ -41,18 +44,30 @@ class ProdutoController extends Controller
 		return redirect()->route('produto.create');
 	}
 
+	public function estoque($id){
+		$produto = Produto::find($id);
+		return view('produto.estoque', compact('produto'));
+	}
+
 	public function addEstoque(Request $request, $id){
 		$produto = Produto::find($id);
-		$input = $request->all();
-		$lista = Produto::where('flg_ativo', 1)->orderBy('nome', 'asc')->paginate(5);
+		$qtd = $request['qtd'];
+		$produto->estoque += $qtd;
+		$produto->save();
 		return redirect()->route('produto.index');
 	}
 
 	public function store(Request $request){
-		$input = Produto::create($request->all());
-
-		return dd($input);
+		$p = $this->produto->create($request->all());
+		$fornecedores = $request['fornecedores'];
+		try {
+			$p->fornecedores()->attach($fornecedores);	
+		} catch (Exception $e) {
+			Session::flash('flash_danger', 'Erro' . $e);
+			return redirect()->route('produto.index');
+		}
+		$lista = Produto::where('flg_ativo', 1)->orderBy('nome', 'asc')->paginate(5);
+		return view('produto.index', compact('lista'));
 	}
-
 
 }

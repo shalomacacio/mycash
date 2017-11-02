@@ -18,8 +18,10 @@
       </thead>
       <tbody>
         @foreach($lista as $l)
-         @if($l->estoque <= $l->estoque_min)
+         @if($l->estoque === 0)
           <tr style="color:red" >
+        @elseif($l->estoque>0 AND $l->estoque <= $l->estoque_min)
+          <tr style="color:orange" >
         @else
           <tr>
         @endif
@@ -30,8 +32,8 @@
             <td>{!! $l->preco_venda !!}</td>
             <td>{!! $l->estoque !!}</td>
             <td>
-              <a href="{{route('produto.create', $l->id)}}" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>
-              <a href="#" class="btn btn-xs btn-primary"><i class="fa fa-retweet"></i></a>
+              <a href="{{route('produto.create', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+              <a href="{{route('produto.estoque', $l->id)}}"  class="btn btn-xs btn-danger"><i class="fa fa-retweet"></i></a>
             </td>
           </tr>
         @endforeach()
