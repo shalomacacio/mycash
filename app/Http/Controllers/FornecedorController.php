@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Model\Fornecedor;
+use Session;
 
 class FornecedorController extends Controller
 {
@@ -68,9 +69,10 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{
-        $fornecedor = Fornecedor::findOrFail($id);
+
         $input = $request->all();
+        $fornecedor = Fornecedor::findOrFail($id);
+        try{
         $fornecedor->fill($input)->save();
         Session::flash('flash_success', 'alterado com sucesso');
         return redirect()->route('fornecedor.index');

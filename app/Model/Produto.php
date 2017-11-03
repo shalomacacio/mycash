@@ -33,4 +33,9 @@ class Produto extends Model
     public function fornecedores(){
     	return $this->belongsToMany(Fornecedor::class, 'fornecedor_produto', 'produto_id', 'fornecedor_id');
     }
+
+    public function compras(){
+        $this->belongsToMany(Compra::class, 'compra_items', 'produto_id', 'compra_id' )
+                            ->withPivot('preco_compra','qtd', 'subtotal');
+    }
 }

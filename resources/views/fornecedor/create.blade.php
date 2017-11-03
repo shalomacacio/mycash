@@ -4,7 +4,6 @@
 	@include('errors._error')
 	@include('errors._alert')
 
-
   <div class="row">
   <!-- left column -->
   <div class="col-md-12">

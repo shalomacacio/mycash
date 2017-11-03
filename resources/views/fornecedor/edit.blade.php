@@ -17,7 +17,7 @@
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('fornecedor.update', $fornecedor->id)], 'method'=>'put']) !!}
+          {!! Form::open(['url'=>[route('fornecedor.update', $fornecedor->id)] , 'method'=>'put']) !!}
             @include('fornecedor._form')
           {!! Form::close() !!}
         </div>

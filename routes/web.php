@@ -33,7 +33,7 @@ Route::group(['prefix'=>'fornecedor'],function(){
 	Route::post('/store', 'FornecedorController@store')->name('fornecedor.store');
 	Route::get('/{id}/edit', 'FornecedorController@edit')->name('fornecedor.edit');
 	Route::get('/create', 'FornecedorController@create')->name('fornecedor.create');
-	Route::put('/update', 'FornecedorController@update')->name('fornecedor.update');
+	Route::put('/{id}/update', 'FornecedorController@update')->name('fornecedor.update');
 });
 
 Route::group(['prefix'=>'lote'],function(){
@@ -50,4 +50,7 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::get('/{id}/edit', 'CompraController@edit')->name('compra.edit');
 	Route::get('/create', 'CompraController@create')->name('compra.create');
 	Route::put('/update', 'CompraController@update')->name('compra.update');
+	Route::post('/novaCompra', 'CompraController@novaCompra')->name('compra.novaCompra');
+	Route::get('/addItem', 'CompraController@addItem')->name('compra.addItem');
+
 });

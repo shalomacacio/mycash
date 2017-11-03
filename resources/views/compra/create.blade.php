@@ -17,8 +17,8 @@
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('lote.store')], 'method'=>'post']) !!}
-            @include('lote._form')
+          {!! Form::open(['url'=>[route('compra.store')], 'method'=>'post']) !!}
+            @include('compra._form')
           {!! Form::close() !!}
         </div>
       </div>

@@ -15,8 +15,9 @@ class CreateComprasTable extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('lote_id');
-            $table->unsignedInteger('fornecedor_id');
+            $table->unsignedBigInteger('codigo')->unique();
+            $table->unsignedInteger('lote_id')->nullable();
+            $table->unsignedInteger('fornecedor_id')->nullable();
             $table->unsignedBigInteger('num_pedido')->nullable();
             $table->timestamps();
         });
