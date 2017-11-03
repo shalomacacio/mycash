@@ -32,13 +32,13 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-truck"></i> Fornecedor </a></li>
+          <li><a href="{{route('fornecedor.index')}}"><i class="fa fa-truck"></i> Fornecedor </a></li>
           <li><a href="{{route('produto.index')}}"><i class="fa fa-barcode"></i> Produto </a></li>
        </ul>
      </li>
 
   <li class="treeview">
-    <a href="#"><i class="fa fa-money"></i> <span>Financeiro</span>
+    <a href="#"><i class="fa fa-money"></i> <span>Movimentação</span>
       <span class="pull-right-container">
         <i class="fa fa-angle-left pull-right"></i>
       </span>

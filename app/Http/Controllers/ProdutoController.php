@@ -30,8 +30,25 @@ class ProdutoController extends Controller
 		$marcas = Marca::all()->pluck('descricao', 'id');
 		$categorias = Categoria::all()->pluck('descricao', 'id');
 		$fornecedores = Fornecedor::all()->pluck('descricao', 'id');
-		$produtos = Produto::where('flg_ativo', 1)->get();
 		return view('produto.create', compact('marcas', 'categorias', 'fornecedores'));
+	}
+
+	public function edit($id){
+		$produto = Produto::find($id);
+		return view('produto.edit', compact('produto'));
+	}
+
+	public function update(Request $request, $id){
+        try{
+       	$produto = Produto::findOrFail($id);
+        $input = $request->all();
+        $produto->fill($input)->save();
+        Session::flash('flash_success', 'alterado com sucesso');
+        return redirect()->route('produto.index');
+         } catch (Exception $e) {
+        Session::flash('flash_danger', 'Erro' . $e);
+        return redirect()->route('produto.index');
+        }
 	}
 
 	public function addMarca(Request $request){
@@ -58,16 +75,9 @@ class ProdutoController extends Controller
 	}
 
 	public function store(Request $request){
-		$p = $this->produto->create($request->all());
-		$fornecedores = $request['fornecedores'];
-		try {
-			$p->fornecedores()->attach($fornecedores);	
-		} catch (Exception $e) {
-			Session::flash('flash_danger', 'Erro' . $e);
-			return redirect()->route('produto.index');
-		}
-		$lista = Produto::where('flg_ativo', 1)->orderBy('nome', 'asc')->paginate(5);
-		return view('produto.index', compact('lista'));
+		$input = $request->all();
+		$this->produto->create($input);
+		return redirect()->route('produto.index');
 	}
 
 }

@@ -32,7 +32,7 @@
             <td>{!! $l->preco_venda !!}</td>
             <td>{!! $l->estoque !!}</td>
             <td>
-              <a href="{{route('produto.create', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+              <a href="{{route('produto.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
               <a href="{{route('produto.estoque', $l->id)}}"  class="btn btn-xs btn-danger"><i class="fa fa-retweet"></i></a>
             </td>
           </tr>

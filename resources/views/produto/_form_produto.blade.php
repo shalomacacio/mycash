@@ -1,4 +1,4 @@
-{!! Form::open(['url'=>[route('produto.store')], 'method'=>'post']) !!}
+
 
 <div class="form-group col-xs-4">
 	{!! Form::label('codigo_interno','Código') !!}
@@ -27,7 +27,7 @@
                 <div class="input-group-btn">
                    <a href="#" class="btn btn-info" role="button"  data-toggle="modal" data-target="#modal-marca" ><i class="fa fa-plus"></i></a>
                 </div>
-	{!! Form::select('marca_id',$marcas,  isset($produto->marca_id)? $produto->marca_id : null , ['class'=>'form-control', 'required', 'placeholder' => 'MARCA' ]) !!}
+	{!! Form::select('marca_id',isset($produto->marca)?$produto->marca->pluck('descricao', 'id'): $marcas ,  isset($produto->marca_id)? $produto->marca_id : null , ['class'=>'form-control', 'required', 'placeholder' => 'MARCA' ]) !!}
 	</div>
 </div>
 
@@ -38,7 +38,7 @@
                 <div class="input-group-btn">
                    <a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modal-categoria"><i class="fa fa-plus"></i></a>
                 </div>
-	{!! Form::select('categoria_id',$categorias,  isset($produto->categoria_id)? $produto->categoria_id : null , ['class'=>'form-control', 'required', 'placeholder' => 'CATEGORIA' ]) !!}
+	{!! Form::select('categoria_id',isset($produto->categoria)?$produto->categoria->pluck('descricao', 'id'): $categorias,  isset($produto->categoria_id)? $produto->categoria_id : null , ['class'=>'form-control', 'required', 'placeholder' => 'CATEGORIA' ]) !!}
 	</div>
 </div>
 
@@ -54,16 +54,15 @@
 	</div>
 </div>
 
-<div class="form-group col-xs-6">
-	{!! Form::label('fornecedores[]','Adicionar Fornecedor') !!}
-	{!! Form::select('fornecedores[]', $fornecedores , isset($fornecedores->fornecedores)? $fornecedores->fornecedores : null,  ['class'=>'form-control' ,'multiple'=> 'multiple', 'placeholder' => 'Selecione...'] ) !!}
+<div class="form-group col-xs-4">
+	{!! Form::label('fornecedores[]','Fornecedores') !!}
+	{!! Form::select('fornecedores[]', isset($produto->fornecedores)?$produto->fornecedores->pluck('descricao', 'id'): $fornecedores , isset($fornecedores->fornecedores)? $fornecedores->fornecedores : null,  ['class'=>'form-control' ,'multiple'=> 'multiple', 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
 <div class="form-group col-xs-12">
 	<div class="pull-right">
-		{!! Form::submit('Criar', ['class'=>'btn btn-primary']) !!}
-		{!! Form::button('Close', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
+		{!! Form::submit('Salvar', ['class'=>'btn btn-primary']) !!}
+		{!! Form::button('Cancelar', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
 	</div>
 </div>
 
-{!!Form::close() !!}
