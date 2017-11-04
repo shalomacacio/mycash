@@ -8,17 +8,17 @@
         <thead>
          <tr>
           <th><a>CODIGO</a></th>
-          <th><a>DESCRIÇÃO</a></th>
-          <th><a>NUM ITENS</a></th>
-          <th><a>TAXAS</a></th>
+          <th><a>LOTE</a></th>
+          <th><a>FORNECEDOR</a></th>
+          <th><a>NUM PEDIDO</a></th>
           <th><a>TOTAL</a></th>
         </tr>
       </thead>
       <tbody>
         @foreach($lista as $l)
             <td>{!! $l->codigo !!}</td>
-            <td>{!! $l->descricao !!}</td>
-            <td>{!! $l->num_itens !!}</td>
+            <td>{!! $l->lote->descricao !!}</td>
+            <td>{!! $l->fornecedor !!}</td>
             <td>{!! $l->taxas !!}</td>
             <td>{!! $l->total !!}</td>
             <td>

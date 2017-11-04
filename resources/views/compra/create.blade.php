@@ -17,7 +17,7 @@
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('compra.store')], 'method'=>'post']) !!}
+          {!! Form::open(['url'=>[route('compra.addItem')], 'method'=>'post']) !!}
             @include('compra._form')
           {!! Form::close() !!}
         </div>

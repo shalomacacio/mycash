@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Model\Lote;
 use App\Model\Compra;
+use App\Model\Produto;
+use App\Model\Fornecedor;
 use App\Model\CompraItem;
 
 use Session;
@@ -37,18 +40,28 @@ class CompraController extends Controller
     {
         
         $codigo = Carbon::now()->format('Ymdgis');
-        $this->compra = new Compra($request->all());
+       /* $this->compra = new Compra($request->all());
         $this->compra->codigo = $codigo;
         $this->compra->save();
-        $compra = Compra::where('codigo', $codigo)->first();
-        return view('compra.create',compact('compra') );
+        $compra = Compra::where('codigo', $codigo)->first();*/
+        $compra = new Compra();
+        $compra->codigo = $codigo;
+        $produtos = Produto::pluck('nome','id');
+        $lotes = Lote::pluck('descricao','id');
+        $fornecedores = Fornecedor::pluck('descricao','id');
+        return view('compra.create',compact('compra', 'produtos', 'lotes', 'fornecedores') );
     }
 
     public function addItem(Request $request)
     {
-        $input = $request->all();
-        $compra = Compra::where('codigo', $input['codigo'])->first();
-        $compra = Compra::find($input['numero_pedido']);
+
+         //$compra = Compra::updateOrCreate('codigo', $input['codigo']);
+        $compra = Compra::updateOrCreate($request->except('_token', 'produto_id','preco_compra', 'qtd', 'subtotal' ));
+        $produto = Produto::find($request['produto_id']);
+
+        $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
+
+        return redirect()->route('compra.index');
 
     }
 
