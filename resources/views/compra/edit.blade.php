@@ -17,8 +17,8 @@
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('lote.update', $lote->id)], 'method'=>'put']) !!}
-            @include('lote._form')
+          {!! Form::open(['url'=>[route('compra.update', $compra->id)], 'method'=>'put']) !!}
+            @include('compra._form')
           {!! Form::close() !!}
         </div>
       </div>

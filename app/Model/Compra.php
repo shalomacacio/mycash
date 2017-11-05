@@ -19,7 +19,7 @@ class Compra extends Model
 	}
 
 	public function fornecedor(){
-		return $this->hasOne(Fornecedor::class);
+		return $this->belongsTo(Fornecedor::class);
 	}
 
     public function produtos()

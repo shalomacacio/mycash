@@ -5,17 +5,17 @@
 
 <div class="form-group col-xs-3">
 	{!! Form::label('lote_id','Lote') !!}
-	{!! Form::select('lote_id', $lotes, null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
+	{!! Form::select('lote_id', isset($compra->lote)?$compra->lote->descricao : $lotes, isset($compra->lote_id)?$compra->lote_id : null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
 <div class="form-group col-xs-3">
 	{!! Form::label('fornecedor_id','Fornecedor') !!}
-	{!! Form::select('fornecedor_id', $fornecedores, null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
+	{!! Form::select('fornecedor_id',  isset($compra->fornecedor)?$compra->fornecedor->descricao : $fornecedores, isset($compra->fornecedor_id)?$compra->fornecedor_id : null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
 <div class="form-group col-xs-3">
 	{!! Form::label('num_pedido','Pedido') !!}
-	{!! Form::text('num_pedido', null , ['class'=>'form-control', 'required', 'placeholder' => 'PEDIDO' ]) !!}
+	{!! Form::text('num_pedido',  isset($compra->num_pedido)?$compra->num_pedido:null , ['class'=>'form-control', 'required', 'placeholder' => 'PEDIDO' ]) !!}
 </div>
 
 <div class="form-group col-xs-4">

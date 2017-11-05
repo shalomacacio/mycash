@@ -32,8 +32,10 @@ class CompraController extends Controller
      */
     public function create()
     {
-
-        return view('compra.create');
+        $produtos = Produto::pluck('nome','id');
+        $lotes = Lote::pluck('descricao','id');
+        $fornecedores = Fornecedor::pluck('descricao','id');
+        return view('compra.create', compact('lotes', 'fornecedores', 'produtos'));
     }
 
     public function novaCompra(Request $request)
@@ -61,7 +63,7 @@ class CompraController extends Controller
 
         $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
 
-        return redirect()->route('compra.index');
+        return view('compra.create', compact('compra'));
 
     }
 

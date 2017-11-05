@@ -19,6 +19,7 @@
         <div class="row">
           {!! Form::open(['url'=>[route('compra.addItem')], 'method'=>'post']) !!}
             @include('compra._form')
+            @include('compra._list_itens')
           {!! Form::close() !!}
         </div>
       </div>
