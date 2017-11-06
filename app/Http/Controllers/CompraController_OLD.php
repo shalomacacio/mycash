@@ -58,12 +58,11 @@ class CompraController extends Controller
 
     public function addItem(Request $request)
     {
-        $input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
-        $compra = Compra::updateOrCreate($input);
+        //$compra = Compra::updateOrCreate('codigo', $input['codigo']);
+        $compra = Compra::updateOrCreate($request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' ));
         $produto = Produto::find($request['produto_id']);
         $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
-
-        return response()->json(['response' => $compra]);
+        return view('compra.edit', compact('compra' ));
     }
 
     /**

@@ -11,13 +11,13 @@
     <!-- general form elements -->
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title"> Produto </h3>
+        <h3 class="box-title"> Lote </h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('compra.addItem', $compra->id)], 'method'=>'post']) !!}
+          {!! Form::open(['url'=>[route('compra.store')], 'method'=>'post']) !!}
             @include('compra._form')
             @include('compra._list_itens')
           {!! Form::close() !!}
@@ -28,10 +28,15 @@
   </div>
 </div>
 
-
 @endsection
 
 @push('scripts')
+
+<script type="text/javascript">
+alert("create k ");
+
+</script>
+
 @endpush
 
 

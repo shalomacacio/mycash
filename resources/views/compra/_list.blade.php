@@ -4,7 +4,7 @@
   </div>
   <div class="box-body">
     <div class="table-responsive">
-      <table class="table table-bordered table-striped" id="marcas-table">
+      <table class="table table-bordered table-striped" id="compras-table">
         <thead>
          <tr>
           <th><a>CODIGO</a></th>
@@ -17,7 +17,7 @@
       <tbody>
         @foreach($lista as $l)
             <td>{!! $l->codigo !!}</td>
-            <td>{!! $l->lote->descricao !!}</td>
+            <td>{!! $l->lote_id !!}</td>
             <td>{!! $l->fornecedor_id!!}</td>
             <td>{!! $l->num_pedido !!}</td>
             <td>
