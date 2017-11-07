@@ -52,5 +52,6 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::put('/update', 'CompraController@update')->name('compra.update');
 	Route::post('/novaCompra', 'CompraController@novaCompra')->name('compra.novaCompra');
 	Route::post('/addItem', 'CompraController@addItem')->name('compra.addItem');
+	Route::get('/addItem', 'CompraController@addItem')->name('compra.addItem');
 
 });

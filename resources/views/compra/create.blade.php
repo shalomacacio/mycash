@@ -55,7 +55,7 @@ $(document).ready(function() {
             dataType: 'JSON',
               success: function( response ) {
                 console.log(response);
-                $('#itens-table').append('<tr><td>'+ response+'</td><td>more data</td></tr>');
+                $('#itens-table').append('<tr><td>'+ response.qtd +'</td><td>more data</td></tr>');
 
 
               }

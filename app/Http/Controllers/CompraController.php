@@ -10,6 +10,7 @@ use App\Model\Produto;
 use App\Model\Fornecedor;
 use App\Model\CompraItem;
 
+use DB;
 use Session;
 use Carbon\Carbon;
 
@@ -41,21 +42,6 @@ class CompraController extends Controller
         return view('compra.create', compact('compra', 'lotes', 'fornecedores', 'produtos'));
     }
 
-    public function novaCompra(Request $request)
-    {
-        $codigo = Carbon::now()->format('Ymdgis');
-       /* $this->compra = new Compra($request->all());
-        $this->compra->codigo = $codigo;
-        $this->compra->save();
-        $compra = Compra::where('codigo', $codigo)->first();*/
-        $compra = new Compra();
-        $compra->codigo = $codigo;
-        $produtos = Produto::pluck('nome','id');
-        $lotes = Lote::pluck('descricao','id');
-        $fornecedores = Fornecedor::pluck('descricao','id');
-        return view('compra.edit',compact('compra', 'produtos', 'lotes', 'fornecedores') );
-    }
-
     public function addItem(Request $request)
     {
         $input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
@@ -63,8 +49,14 @@ class CompraController extends Controller
         $produto = Produto::find($request['produto_id']);
         $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
 
-        return response()->json(['response' => $compra]);
+        return response()->json(['response' => $compra->produtos()]);
     }
+
+/*    DB::table('users')
+            ->join('contacts', 'users.id', '=', 'contacts.user_id')
+            ->join('orders', 'users.id', '=', 'orders.user_id')
+            ->select('users.*', 'contacts.phone', 'orders.price')
+            ->get();*/
 
     /**
      * Store a newly created resource in storage.
