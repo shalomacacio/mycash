@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 use App\Model\Lote;
 use App\Model\Compra;
@@ -49,14 +50,29 @@ class CompraController extends Controller
         $produto = Produto::find($request['produto_id']);
         $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
 
-        return response()->json(['response' => $compra->produtos()]);
+        $itens = DB::table('compras as c')
+                       ->join('compra_items as ci', 'c.id', '=', 'ci.compra_id' )
+                       ->join('produtos as p', 'p.id', '=', 'ci.produto_id')
+                        ->where('c.codigo', $request['codigo'])
+                        ->get();
+        return Response::json($itens);
     }
 
-/*    DB::table('users')
-            ->join('contacts', 'users.id', '=', 'contacts.user_id')
-            ->join('orders', 'users.id', '=', 'orders.user_id')
-            ->select('users.*', 'contacts.phone', 'orders.price')
-            ->get();*/
+    public function delItem(Request $request)
+    {
+        $itens2 = Compra::where('codigo','=' ,$request['codigo']);
+        //$produto = Produto::find($request['produto_id']);
+        //$compra->produtos()->detach();
+        //$managementUnit->councils()->where('id', 1)->wherePivot('year', 2011)->detach(1);
+
+/*        $itens2 = DB::table('compras as c')
+                       ->join('compra_items as ci', 'c.id', '=', 'ci.compra_id' )
+                       ->join('produtos as p', 'p.id', '=', 'ci.produto_id')
+                        ->where('c.codigo', $request['codigo'])
+                        ->get();*/
+
+        return Response::json($itens2);
+    }
 
     /**
      * Store a newly created resource in storage.
