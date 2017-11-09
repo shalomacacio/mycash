@@ -87,18 +87,19 @@
            data:{produto_id: produto_id, codigo: codigo }, 
            dataType: 'JSON', 
            success: function(itens2){
-            console.log(itens2);
+            //console.log(itens2);
             $('#itens-table').empty();
                   $.each(itens2, function(key, data){
-                  $('#itens-table').append('<tr>'+
-                                            '<td id=proid'+ key+' visible="false">'+ data.produto_id +'</td>'+
-                                            '<td id=nom'+ key+'>'+ data.nome +'</td>'+
-                                            '<td id=pre'+ key+'>'+data.preco_compra+'</td>'+
-                                            '<td id=qtd'+ key+'>'+data.qtd+'</td>'+
-                                            '<td id=sub'+ key+'>'+data.subtotal+'</td>'+
-                                            '<td><a  type="button" class="btn btn-danger btn_remove"  id="'+key +'"><i class="fa fa-trash"></i></a></td>'+
-                                            '</tr>'); 
-                });
+                  $('#itens-table').append(
+                    '<tbody>'+
+                    '<td id=proid'+ key+' visible="false">'+ data.produto_id +'</td>'+
+                    '<td id=nom'+ key+'>'+ data.nome +'</td>'+
+                    '<td id=pre'+ key+'>'+data.preco_compra+'</td>'+
+                    '<td id=qtd'+ key+'>'+data.qtd+'</td>'+
+                    '<td id=sub'+ key+'>'+data.subtotal+'</td>'+
+                    '<td><a  type="button" class="btn btn-danger btn_remove"  id="'+key +'"><i class="fa fa-trash"></i></a></td>'+
+                    '</tbody>'); 
+                  });
            }
         });
         

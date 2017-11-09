@@ -60,16 +60,16 @@ class CompraController extends Controller
 
     public function delItem(Request $request)
     {
-        $itens2 = Compra::where('codigo','=' ,$request['codigo']);
+        $compra = Compra::where('codigo','=' ,$request['codigo'])->first();
         //$produto = Produto::find($request['produto_id']);
-        //$compra->produtos()->detach();
+        $compra->produtos()->detach($request['produto_id']);
         //$managementUnit->councils()->where('id', 1)->wherePivot('year', 2011)->detach(1);
 
-/*        $itens2 = DB::table('compras as c')
+        $itens2 = DB::table('compras as c')
                        ->join('compra_items as ci', 'c.id', '=', 'ci.compra_id' )
                        ->join('produtos as p', 'p.id', '=', 'ci.produto_id')
                         ->where('c.codigo', $request['codigo'])
-                        ->get();*/
+                        ->get();
 
         return Response::json($itens2);
     }
