@@ -87,6 +87,15 @@ class CompraController extends Controller
         return redirect()->route('compra.index');
     }
 
+    public function finCompra(Request $request)
+    {
+        $compra = Compra::where('codigo','=' ,$request['codigo'])->first();
+        $compra->flg_concluida=1;
+        $compra->update();
+         return redirect()->route('compra.index');
+        
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

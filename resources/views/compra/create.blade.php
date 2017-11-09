@@ -15,14 +15,22 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
+      {!! Form::open(['url'=>[route('compra.finCompra')], 'method'=>'post']) !!}
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('compra.store')], 'method'=>'post']) !!}
             @include('compra._form')
-          {!! Form::close() !!}
         </div>
          @include('compra._list_itens')
+        <br>
+        <div class="form-group col-xs-12">
+          <div class="pull-right">
+            {!! Form::submit('Finalizar Compra', ['class'=>'btn btn-danger']) !!}
+            {!! Form::button('Cancelar', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
+          </div>
+        </div>
       </div>
+
+       {!! Form::close() !!}
     </div>
     <!-- /.box -->
   </div>
@@ -119,16 +127,14 @@
       function limpaCampos(){
         $('input[name=qtd]').val('');
         $('input[name=preco_compra]').val('');
-         $('input[name=subtotal]').val('');
+        $('input[name=subtotal]').val('');
+         $('select[name=produto_id]').reset();
       }
-
-
 
       function desativarCampos(){
         $('select[name=lote_id]').setAttribute("readonly", true);
         $('select[name=fornecedor_id]').setAttribute("readonly", true);
       }
-
 
 </script>
 
