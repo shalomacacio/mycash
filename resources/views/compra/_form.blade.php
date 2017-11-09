@@ -5,7 +5,7 @@
 
 <div class="form-group col-xs-3">
 	{!! Form::label('lote_id','Lote') !!}
-	{!! Form::select('lote_id', $lotes , $compra->lote OR null,   ['class'=>'form-control', 'placeholder' => 'Selecione...' ] ) !!}
+	{!! Form::select('lote_id', $lotes , $compra->lote OR null,   ['class'=>'form-control', @if($compra->lote) 'readOnly'  @endif 'placeholder' => 'Selecione...' ] ) !!}
 </div>
 
 <div class="form-group col-xs-3">
@@ -35,7 +35,7 @@
 
 <div class="form-group col-xs-2">
 	{!! Form::label('subtotal','Subtotal') !!}
-	{!! Form::text('subtotal', null , ['class'=>'form-control', 'required', 'placeholder' => 'PEDIDO' ]) !!}
+	{!! Form::text('subtotal', null , ['class'=>'form-control', 'required','readonly', 'placeholder' => 'SUBTOTAL' ]) !!}
 </div>
 
 <div class="form-group col-xs-2">

@@ -19,9 +19,9 @@
         <div class="row">
           {!! Form::open(['url'=>[route('compra.store')], 'method'=>'post']) !!}
             @include('compra._form')
-            @include('compra._list_itens')
           {!! Form::close() !!}
         </div>
+         @include('compra._list_itens')
       </div>
     </div>
     <!-- /.box -->
@@ -56,10 +56,9 @@
             dataType: 'JSON',
             success: function( itens ) {
                   //limpar tabela 
-                
                   $('#itens-table').empty();
                   $.each(itens, function(key, data){
-                  $('#itens-table').append('<tr>'+
+                  $('#itens-table').append('<tr id=row'+key+'>'+
                                             '<td id=proid'+ key+' visible="false">'+ data.produto_id +'</td>'+
                                             '<td id=nom'+ key+'>'+ data.nome +'</td>'+
                                             '<td id=pre'+ key+'>'+data.preco_compra+'</td>'+
@@ -71,6 +70,8 @@
             }
             
         });
+        limpaCampos();
+        desativarCampos();
     });
 
     $(document).on('click', '.btn_remove', function(){
@@ -104,6 +105,29 @@
         });
         
     });
+
+
+      $('input[name=qtd]').blur(function() {
+
+        //var $vlrVenda = $("#vlr_venda").val();
+        var qtd = parseInt($('input[name=qtd]').val());
+        var preco_compra = parseFloat ($('input[name=preco_compra]').val());
+        var subtotal = qtd * preco_compra;       
+        parseFloat ($('input[name=subtotal]').val(subtotal.toFixed(2)));
+       });
+
+      function limpaCampos(){
+        $('input[name=qtd]').val('');
+        $('input[name=preco_compra]').val('');
+      }
+
+
+
+      function desativarCampos(){
+        $('select[name=lote_id]').setAttribute("readonly", true);
+        $('select[name=fornecedor_id]').setAttribute("readonly", true);
+      }
+
 
 </script>
 
