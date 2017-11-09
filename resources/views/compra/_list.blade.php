@@ -16,12 +16,12 @@
       </thead>
       <tbody>
         @foreach($lista as $l)
+            <tr>
             <td>{!! $l->codigo !!}</td>
             <td>{!! $l->lote_id !!}</td>
             <td>{!! $l->fornecedor_id!!}</td>
             <td>{!! $l->num_pedido !!}</td>
-            <td>
-              <a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+            <td><a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
             </td>
           </tr>
         @endforeach()

@@ -1202,6 +1202,8 @@ a:focus {
         background: #fff
     }
 }
+
+
 .form-control {
     border-radius: 0;
     box-shadow: none;
@@ -1257,6 +1259,11 @@ a:focus {
     border-color: #d2d6de;
     background-color: #fff
 }
+
+.form-group .btn {
+   margin-top: 25px;
+}
+
 .btn-group-vertical .btn.btn-flat:first-of-type,
 .btn-group-vertical .btn.btn-flat:last-of-type {
     border-radius: 0
