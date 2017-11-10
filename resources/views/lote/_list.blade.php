@@ -22,7 +22,8 @@
             <td>{!! $l->taxas !!}</td>
             <td>{!! $l->total !!}</td>
             <td>
-              <a href="{{route('lote.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+              <a href="{{route('lote.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+              <a href="{{route('lote.show', $l->id)}}" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a>
             </td>
           </tr>
         @endforeach()

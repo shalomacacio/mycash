@@ -15,5 +15,9 @@ class Lote extends Model
     	'total',
     ];
 
+
+/*    public function compras(){
+		return $this->hasMany(Lote::class, 'id', 'lote_id');
+	}*/
     
 }

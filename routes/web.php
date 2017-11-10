@@ -44,6 +44,8 @@ Route::group(['prefix'=>'lote'],function(){
 	Route::get('/{id}/edit', 'LoteController@edit')->name('lote.edit');
 	Route::get('/create', 'LoteController@create')->name('lote.create');
 	Route::put('/update', 'LoteController@update')->name('lote.update');
+	Route::get('/{id}/show', 'LoteController@show')->name('lote.show');
+
 });
 
 Route::group(['prefix'=>'compra'],function(){

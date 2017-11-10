@@ -22,6 +22,7 @@ class ProdutoController extends Controller
 	}
 
 	public function index(){
+		
 		$lista = Produto::where('flg_ativo', 1)->orderBy('nome', 'asc')->paginate(5);
 		return view('produto.index', compact('lista'));
 	}

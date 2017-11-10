@@ -72,4 +72,12 @@ class LoteController extends Controller
         return redirect()->route('lote.index');
         }
     }
+
+        public function show($id)
+    {
+
+        $lote = $this->lote->find($id);
+        return view('lote.show', compact('lote'));
+
+    }
 }

@@ -1,6 +1,7 @@
 
 @extends('layouts.admin')
 
+
 @section('content')
 	@include('errors._error')
 	@include('errors._alert')
@@ -18,8 +19,6 @@
 	</div>
 	<br>
 	@include('produto._list')
-
-	
 
 
 @isset($produto->id)

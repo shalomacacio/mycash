@@ -24,6 +24,7 @@ class CompraController extends Controller
     public function index()
     {
         $lista = Compra::orderBy('codigo', 'asc')->paginate(5);
+
         return view('compra.index', compact('lista'));
     }
 
@@ -131,4 +132,6 @@ class CompraController extends Controller
         return redirect()->route('compra.index');
         }
     }
+
+
 }
