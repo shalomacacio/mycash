@@ -25,7 +25,7 @@
         <div class="form-group col-xs-12">
           <div class="pull-right">
             {!! Form::submit('Finalizar Compra', ['class'=>'btn btn-danger']) !!}
-            {!! Form::button('Cancelar', ['class'=>'btn btn-defaut', 'data-dismiss'=>'modal']) !!}
+            <a href="{{url()->previous()}}" class="btn btn-default">Cancel</a>
           </div>
         </div>
       </div>
