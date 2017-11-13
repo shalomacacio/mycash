@@ -78,8 +78,6 @@ class ProdutoController extends Controller
 
 	public function searchCompra($id){
 		$compra = Compra::find($id);
-
-
 		//return Response::json($lote);
 	}
 

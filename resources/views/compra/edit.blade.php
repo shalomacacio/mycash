@@ -46,7 +46,7 @@
 
     $('#btn_add').on('click', function (e) {
         e.preventDefault();
-  
+
         var codigo = $('#codigo').val();
         var lote_id = $('#lote_id').val();
         var fornecedor_id = $('#fornecedor_id').val();
@@ -79,39 +79,7 @@
             
         });
         limpaCampos();
-        desativarCampos();
-    });
-
-    $(document).on('click', '.btn_remove', function(){
-        var button_id = $(this).attr("id");
-        var codigo = $('#codigo').val();
-        var produto_id = document.getElementById("proid"+button_id).firstChild.nodeValue;
-        //var produto = document.getElementById("nom"+currentId);
-        //codigo.firstChild.nodeValue
-        //alert(produto_id);
-        $.ajax({
-           headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-           type: "POST",
-           url: '/compra/delItem/',
-           data:{produto_id: produto_id, codigo: codigo }, 
-           dataType: 'JSON', 
-           success: function(itens2){
-            //console.log(itens2);
-            $('#itens-table').empty();
-                  $.each(itens2, function(key, data){
-                  $('#itens-table').append(
-                    '<tbody>'+
-                    '<td id=proid'+ key+' visible="false">'+ data.produto_id +'</td>'+
-                    '<td id=nom'+ key+'>'+ data.nome +'</td>'+
-                    '<td id=pre'+ key+'>'+data.preco_compra+'</td>'+
-                    '<td id=qtd'+ key+'>'+data.qtd+'</td>'+
-                    '<td id=sub'+ key+'>'+data.subtotal+'</td>'+
-                    '<td><a  type="button" class="btn btn-danger btn_remove"  id="'+key +'"><i class="fa fa-trash"></i></a></td>'+
-                    '</tbody>'); 
-                  });
-           }
-        });
-        
+ 
     });
 
 
@@ -128,13 +96,10 @@
         $('input[name=qtd]').val('');
         $('input[name=preco_compra]').val('');
         $('input[name=subtotal]').val('');
-         $('select[name=produto_id]').reset();
+         
       }
 
-      function desativarCampos(){
-        $('select[name=lote_id]').setAttribute("readonly", true);
-        $('select[name=fornecedor_id]').setAttribute("readonly", true);
-      }
+
 
 </script>
 

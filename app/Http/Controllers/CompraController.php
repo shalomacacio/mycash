@@ -75,6 +75,17 @@ class CompraController extends Controller
         return Response::json($itens2);
     }
 
+    public function deleteItem($id , $produto_id){
+        $compra = Compra::find($id);
+        $compra->produtos()->detach($produto_id);
+        $produtos = Produto::pluck('nome','id');
+        $lotes = Lote::pluck('descricao','id');
+        $fornecedores = Fornecedor::pluck('descricao','id');
+       return redirect()->route('compra.edit', compact('compra','produtos', 'lotes', 'fornecedores'));
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *

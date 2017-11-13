@@ -16,7 +16,7 @@
             <td>{!! $l->pivot->qtd!!}</td>
             <td>{!! $l->pivot->subtotal!!}</td>
             <td>
-              <a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+              <a href="{{route('compra.deleteItem', [$compra->id, $l->id])}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
         @endforeach()
