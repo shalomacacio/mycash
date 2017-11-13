@@ -12,6 +12,7 @@
           <th><a>FORNECEDOR</a></th>
           <th><a>NUM PEDIDO</a></th>
            <th><a>SITUAÇÃO</a></th>
+           <th><a>TOTAL</a></th>
           <th><a>AÇÃO</a></th>
         </tr>
       </thead>
@@ -27,8 +28,7 @@
             @else
               <td><span class="label label-success">concluída</span></td>
             @endif 
-
-
+            <td>SOMA DO PIVOT</td>
             <td><a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
             </td>
           </tr>
