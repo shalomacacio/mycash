@@ -25,8 +25,11 @@ Route::group(['prefix'=>'produto'],function(){
 	Route::get('/{id}/edit', 'ProdutoController@edit')->name('produto.edit');
 	Route::get('/create', 'ProdutoController@create')->name('produto.create');
 	Route::get('{id}/estoque', 'ProdutoController@estoque')->name('produto.estoque');
+	Route::get('{id}/atualizaPreco', 'ProdutoController@atualizaPreco')->name('produto.atualizaPreco');
+	Route::get('{id}/searchCompra', 'ProdutoController@searchCompra')->name('produto.searchCompra');
 	Route::post('/addMarca', 'ProdutoController@addMarca')->name('produto.addMarca');
 	Route::put('/{id}/addEstoque', 'ProdutoController@addEstoque')->name('produto.addEstoque');
+	Route::put('/{id}/addPreco', 'ProdutoController@addPreco')->name('produto.addPreco');
 	Route::post('/addCategoria', 'ProdutoController@addCategoria')->name('produto.addCategoria');
 });
 

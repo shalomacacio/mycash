@@ -23,7 +23,7 @@
     <ul class="sidebar-menu">
       <li class="header"></li>
       <!-- Optionally, you can add icons to the links -->
-      <li><a href="/mycash/welcome"><i class="fa fa-dashboard"></i> Principal </a></li>
+      <li><a href="/home"><i class="fa fa-dashboard"></i> Principal </a></li>
 
       <li class="treeview">
       <a href="#"><i class="fa fa-home"></i> <span>Cadastro</span>

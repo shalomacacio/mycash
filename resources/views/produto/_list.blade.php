@@ -34,6 +34,7 @@
             <td>
               <a href="{{route('produto.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
               <a href="{{route('produto.estoque', $l->id)}}"  class="btn btn-xs btn-danger"><i class="fa fa-retweet"></i></a>
+              <a href="{{route('produto.atualizaPreco', $l->id)}}"  class="btn btn-xs btn-success"><i class="fa fa-money"></i></a>
             </td>
           </tr>
         @endforeach()

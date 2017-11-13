@@ -20,6 +20,7 @@ class CreateProdutosTable extends Migration
             $table->unsignedBigInteger('codigo_interno')->unique();
             $table->string('nome')->unique();
             $table->text('descricao')->nullable();
+            $table->decimal('preco_custo', 8,2)->default(0.00);
             $table->decimal('preco_venda', 8,2)->default(0.00);
             $table->unsignedInteger('estoque')->default(0);
             $table->unsignedInteger('estoque_min')->default(0);

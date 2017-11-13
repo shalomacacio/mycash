@@ -1,5 +1,3 @@
-
-
 <div class="form-group col-xs-4">
 	{!! Form::label('categoria_id','Categoria') !!}
 
@@ -40,17 +38,6 @@
 <div class="form-group col-xs-4">
 	{!! Form::label('descricao','Descrição') !!}
 	{!! Form::text('descricao',isset($produto->descricao)? $produto->descricao : null , ['class'=>'form-control', 'required', 'placeholder' => 'DESCRICAO' ]) !!}
-</div>
-
-<div class="form-group col-xs-4">
-	{!! Form::label('preco_venda','Preço Venda') !!}
-
-	<div class="input-group">
-                <div class="input-group-btn">
-                   <a href="#" class="btn btn-info" role="button"><i class="fa fa-calculator"></i></a>
-                </div>
-	{!! Form::text('preco_venda',isset($produto->preco_venda)? $produto->preco_venda : null , ['class'=>'form-control', 'required', 'placeholder' => 'PREÇO DE VENDA ' ]) !!}
-	</div>
 </div>
 
 <div class="form-group col-xs-4">

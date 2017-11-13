@@ -21,13 +21,8 @@
 </div>
 
 <div class="form-group col-xs-2">
-	{!! Form::label('preco_compra','Preço Custo') !!}
-	<div class="input-group">
-		<div class="input-group-btn">
-			<a href="#" class="btn btn-info" role="button"><i class="fa fa-calculator"></i></a>
-		</div>
+	{!! Form::label('preco_compra','Preço') !!}
 	{!! Form::text('preco_compra', null,   ['class'=>'form-control' ] ) !!}
-	</div>
 </div>
 
 <div class="form-group col-xs-2">
