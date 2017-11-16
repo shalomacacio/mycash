@@ -43,8 +43,8 @@
               <th>Cod Produto</th>
               <th>Fornecedor</th>
               <th>Produto</th>
-              <th>Qtd</th>
               <th>Preço</th>
+              <th>Qtd</th>
               <th>Subtotal</th>
             </tr>
             </thead>
@@ -54,8 +54,8 @@
                 <td>{!! $p->codigo_interno !!}</td>
                 <td>{!! $p->descricao !!}</td>
                 <td>{!! $p->nome !!}</td>
-                <td>{!! $p->qtd !!}</td>
                 <td>{!! $p->preco_compra !!}</td>
+                <td>{!! $p->qtd !!}</td>
                 <td>{!! $p->subtotal !!}</td>
               </tr>
             @endforeach()
