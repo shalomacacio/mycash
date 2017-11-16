@@ -15,7 +15,7 @@ class Compra extends Model
 	];
 
 	public function lote(){
-		return $this->hasOne(Lote::class, 'id', 'compra_id');
+		return $this->hasOne(Lote::class, 'id', 'lote_id');
 	}
 
 	public function fornecedor(){

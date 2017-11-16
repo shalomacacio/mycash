@@ -27,9 +27,8 @@
       <div class="row invoice-info">
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
-          <b>Data Compra:</b> não existe - implantar<br>
-          <b>Descrição da compra:</b> {!! $lote->descricao  !!} <br>
-          <b>Quantidade de Itens:</b> {!! $lote->num_itens  !!} <br>
+          <b>Quantidade de Itens:</b> {{count($lote)}} <br>
+          <b>Valor Total: R$ </b> {{$lote->sum('subtotal')}} <br>
         </div>
         <!-- /.col -->
       </div>
@@ -42,19 +41,31 @@
             <thead>
             <tr>
               <th>Cod Produto</th>
+              <th>Fornecedor</th>
               <th>Produto</th>
               <th>Qtd</th>
+              <th>Preço</th>
+              <th>Subtotal</th>
             </tr>
             </thead>
             <tbody>
-           @foreach($lote->compra->produtos as $p)
+           @foreach($lote as $p)
               <tr>
                 <td>{!! $p->codigo_interno !!}</td>
+                <td>{!! $p->descricao !!}</td>
                 <td>{!! $p->nome !!}</td>
+                <td>{!! $p->qtd !!}</td>
+                <td>{!! $p->preco_compra !!}</td>
+                <td>{!! $p->subtotal !!}</td>
               </tr>
             @endforeach()
-
             </tbody>
+            <tfooter>
+              <tr>
+                <td colspan="5"><h2>Total</h2></td> 
+                <td><h2> {{  'R$ '.number_format($lote->sum('subtotal'), 2, ',', '.') }} </h2></td>
+              </tr>
+            </tfooter>
           </table>
         </div>
         <!-- /.col -->

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Lote;
 
+use DB;
+
 class LoteController extends Controller
 {
    public function __construct(Lote $lote){
@@ -75,9 +77,20 @@ class LoteController extends Controller
 
         public function show($id)
     {
+        /*$lote = $this->lote->find($id);
+        //return dd($lote->compras);
+        return view('lote.show', compact('lote'));*/
 
-        $lote = $this->lote->find($id);
-        return view('lote.show', compact('lote'));
+        $lote = DB::table('lotes as l')
+                    ->join('compras as c', 'c.lote_id', '=', 'l.id')
+                    ->join('compra_items as ci', 'ci.compra_id', '=', 'c.id')
+                    ->join('produtos as p', 'p.id', '=', 'ci.produto_id')
+                    ->join('fornecedores as f', 'f.id', 'c.fornecedor_id')
+                    ->where('l.id', '=', $id)
+                    ->get();
 
+         //return dd($lote);
+
+         return view('lote.show', compact('lote'));
     }
 }
