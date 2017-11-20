@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Response;
 
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoRequest;
 
 use App\Model\Fornecedor;
 use App\Model\Categoria;
@@ -42,7 +43,7 @@ class ProdutoController extends Controller
 		return view('produto.edit', compact('produto'));
 	}
 
-	public function update(Request $request, $id){
+	public function update(ProdutoRequest $request, $id){
         try{
        	$produto = Produto::findOrFail($id);
         $input = $request->all();
@@ -99,10 +100,17 @@ class ProdutoController extends Controller
 		return redirect()->route('produto.index');
 	}
 
-	public function store(Request $request){
-		$input = $request->all();
-		$this->produto->create($input);
-		return redirect()->route('produto.index');
+	public function store(ProdutoRequest $request){
+
+		 try {
+		 	$input = $request->all();
+			$this->produto->create($input);
+			Session::flash('flash_success', 'alterado com sucesso');
+			return redirect()->route('produto.index');
+		 } catch ( Exception $e) {
+		 	Session::flash('flash_danger', 'Erro' . $e);
+        	return redirect()->route('produto.index');
+		 }
 	}
 
 }
