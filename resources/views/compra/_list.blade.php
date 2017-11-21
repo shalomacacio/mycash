@@ -28,7 +28,7 @@
             @else
               <td><span class="label label-success">concluída</span></td>
             @endif 
-            <td>{!! $l->produtos()->sum('preco_compra') !!}</td>
+            <td>{!! $l->produtos()->sum('subtotal') !!}</td>
             <td><a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
             </td>
           </tr>
