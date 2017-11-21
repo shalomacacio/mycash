@@ -12,6 +12,7 @@
           <th><a>NUM ITENS</a></th>
           <th><a>TAXAS</a></th>
           <th><a>TOTAL</a></th>
+          <th><a>% DE AUMENTO</a></th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,10 @@
             <td>{!! $l->num_itens !!}</td>
             <td>{!! $l->taxas !!}</td>
             <td>{!! $l->total !!}</td>
+            <td>{!! number_format(($l->taxas * 100)/$l->total, 2)." %" !!}</td>
+
+
+
             <td>
               <a href="{{route('lote.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
               <a href="{{route('lote.show', $l->id)}}" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Lote;
 
 use DB;
+use Session;
 
 class LoteController extends Controller
 {

@@ -46,7 +46,7 @@ Route::group(['prefix'=>'lote'],function(){
 	Route::post('/store', 'LoteController@store')->name('lote.store');
 	Route::get('/{id}/edit', 'LoteController@edit')->name('lote.edit');
 	Route::get('/create', 'LoteController@create')->name('lote.create');
-	Route::put('/update', 'LoteController@update')->name('lote.update');
+	Route::put('{id}/update', 'LoteController@update')->name('lote.update');
 	Route::get('/{id}/show', 'LoteController@show')->name('lote.show');
 
 });
@@ -56,7 +56,7 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::post('/store', 'CompraController@store')->name('compra.store');
 	Route::get('/{id}/edit', 'CompraController@edit')->name('compra.edit');
 	Route::get('/create', 'CompraController@create')->name('compra.create');
-	Route::put('/update', 'CompraController@update')->name('compra.update');
+	Route::put('{id}/update', 'CompraController@update')->name('compra.update');
 	Route::post('/novaCompra', 'CompraController@novaCompra')->name('compra.novaCompra');
 	Route::post('/addItem', 'CompraController@addItem')->name('compra.addItem');
 	Route::post('/delItem', 'CompraController@delItem')->name('compra.delItem');

@@ -35,14 +35,34 @@
         <div class="modal-body">
            {!! Form::open() !!}
 
-            <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('compra_id','Pedido') !!}
-              {!! Form::select('compra_id',$compras,   ['class'=>'form-control', 'placeholder' => 'Selecione...' ]) !!}
+            <div class="form-group col-xs-12">
+              {!! Form::label('compra_id','Compra') !!}
+
+              <div class="input-group">
+                            <div class="input-group-btn">
+                               <a href="#" class="btn btn-info" role="button"><i class="fa fa-barcode"></i></a>
+                            </div>
+              {!! Form::text('compra_id', null , ['class'=>'form-control', 'required', 'placeholder' => 'CATEGORIA' ]) !!}
+              </div>
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_compra','Codigo da Compra teste') !!}
-              {!! Form::text('vlr_compra', isset($compra->codigo)? $compra->codigo : null , ['class'=>'form-control', 'disabled' ]) !!}
+              {!! Form::label('vlr_compra','Vlr Compra') !!}
+              {!! Form::text('vlr_compra', null , ['class'=>'form-control' ]) !!}
+            </div>
+
+            <div class="form-group col-xs-12 col-md-12">
+              {!! Form::label('vlr_caixa','Custo da Caixa') !!}
+              {!! Form::text('vlr_caixa', null , ['class'=>'form-control'  ]) !!}
+            </div>
+
+            <div class="form-group col-xs-12 col-md-12">
+              {!! Form::submit('Calcular', ['class'=>'btn btn-block btn-success btn-sm']) !!}
+            </div>
+
+            <div class="form-group col-xs-12 col-md-12">
+              {!! Form::label('percent_aumento','% de Aumento') !!}
+              {!! Form::text('percent_aumento', null , ['class'=>'form-control', 'disabled' ]) !!}
             </div>
 
            {!! Form::close() !!}
