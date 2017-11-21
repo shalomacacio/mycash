@@ -1,6 +1,6 @@
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Compras Pendentes</h3>
+    <h3 class="box-title">Compras </h3>
   </div>
   <div class="box-body">
     <div class="table-responsive">
