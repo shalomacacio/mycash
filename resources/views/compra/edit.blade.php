@@ -15,7 +15,7 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['url'=>[route('compra.finCompra')], 'method'=>'post']) !!}
+      {!! Form::open(['url'=>[route('compra.addItem2')], 'method'=>'put']) !!}
       <div class="box-body">
         <div class="row">
             @include('compra._form')
@@ -43,7 +43,7 @@
 <script type="text/javascript">
 
 
-
+/*
     $('#btn_add').on('click', function (e) {
         e.preventDefault();
 
@@ -80,7 +80,7 @@
         });
         limpaCampos();
  
-    });
+    });*/
 
 
       $('input[name=qtd]').blur(function() {

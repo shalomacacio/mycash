@@ -39,7 +39,7 @@
 </div>
 
 <div class="form-group col-xs-2">
-	{!! Form::button('Adicionar', ['class'=>'btn btn-especial btn-success form-control', 'id'=>'btn_add']) !!}
+	{!! Form::submit('Adicionar', ['class'=>'btn btn-especial btn-success form-control', 'id'=>'btn_add']) !!}
 </div>
 
 {!! Form::hidden('codigo', isset($compra->codigo)? $compra->codigo : null, ['id'=>'codigo'] ) !!}

@@ -59,6 +59,7 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::put('{id}/update', 'CompraController@update')->name('compra.update');
 	Route::post('/novaCompra', 'CompraController@novaCompra')->name('compra.novaCompra');
 	Route::post('/addItem', 'CompraController@addItem')->name('compra.addItem');
+	Route::put('/addItem2', 'CompraController@addItem2')->name('compra.addItem2');
 	Route::post('/delItem', 'CompraController@delItem')->name('compra.delItem');
 	Route::get('/deleteItem/{id}/{produto_id}', 'CompraController@deleteItem')->name('compra.deleteItem');
 	Route::post('/finCompra', 'CompraController@finCompra')->name('compra.finCompra');

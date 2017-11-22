@@ -80,7 +80,7 @@
             
         });
         limpaCampos();
-        desativarCampos();
+        
     });
 
     $(document).on('click', '.btn_remove', function(){
@@ -129,13 +129,9 @@
         $('input[name=qtd]').val('');
         $('input[name=preco_compra]').val('');
         $('input[name=subtotal]').val('');
-         $('select[name=produto_id]').reset();
       }
 
-      function desativarCampos(){
-        $('select[name=lote_id]').setAttribute("readonly", true);
-        $('select[name=fornecedor_id]').setAttribute("readonly", true);
-      }
+
 
 </script>
 

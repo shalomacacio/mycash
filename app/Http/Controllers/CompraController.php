@@ -44,7 +44,7 @@ class CompraController extends Controller
         return view('compra.create', compact('compra', 'lotes', 'fornecedores', 'produtos'));
     }
 
-    public function addItem(Request $request)
+/*    public function addItem(Request $request)
     {
         $input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
         $compra = Compra::updateOrCreate($input);
@@ -57,6 +57,27 @@ class CompraController extends Controller
                         ->where('c.codigo', $request['codigo'])
                         ->get();
         return Response::json($itens);
+    }*/
+
+    public function addItem2(Request $request)
+    {
+
+        //$input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
+        $input = $request->all();
+        
+
+        $compra = Compra::where('codigo', $input['codigo'])->first();
+        $produto = Produto::find($input['produto_id']);
+
+        $compra->produtos()->attach($produto->id,['preco_compra'=>$request['preco_compra'],  'qtd'=> $request['qtd'],'subtotal'=>$request['subtotal']]);
+        
+        $itens = DB::table('compras as c')
+                       ->join('compra_items as ci', 'c.id', '=', 'ci.compra_id' )
+                       ->join('produtos as p', 'p.id', '=', 'ci.produto_id')
+                        ->where('c.codigo', $request['codigo'])
+                        ->get();
+        return redirect()->route('compra.edit', $compra->id);
+
     }
 
     public function delItem(Request $request)
