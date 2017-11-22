@@ -24,7 +24,6 @@
         <br>
         <div class="form-group col-xs-12">
           <div class="pull-right">
-            {!! Form::submit('Finalizar Compra', ['class'=>'btn btn-danger']) !!}
             <a href="{{url()->previous()}}" class="btn btn-default">Cancel</a>
           </div>
         </div>

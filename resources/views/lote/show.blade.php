@@ -27,7 +27,7 @@
       <div class="row invoice-info">
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
-          <b>Quantidade de Itens:</b> {{count($lote)}} <br>
+          <b>Quantidade de Itens:</b> {{$lote->sum('qtd')}} <br>
           <b>Valor Total: R$ </b> {{$lote->sum('subtotal')}} <br>
         </div>
         <!-- /.col -->

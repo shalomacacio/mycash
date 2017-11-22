@@ -44,7 +44,7 @@ class CompraController extends Controller
         return view('compra.create', compact('compra', 'lotes', 'fornecedores', 'produtos'));
     }
 
-/*    public function addItem(Request $request)
+    public function addItem(Request $request)
     {
         $input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
         $compra = Compra::updateOrCreate($input);
@@ -57,7 +57,7 @@ class CompraController extends Controller
                         ->where('c.codigo', $request['codigo'])
                         ->get();
         return Response::json($itens);
-    }*/
+    }
 
     public function addItem2(Request $request)
     {
