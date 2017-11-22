@@ -32,9 +32,9 @@ class ProdutoController extends Controller
 	}
 
 	public function create(){
-		$marcas = Marca::all()->pluck('descricao', 'id');
-		$categorias = Categoria::all()->pluck('descricao', 'id');
-		$fornecedores = Fornecedor::all()->pluck('descricao', 'id');
+		$marcas = Marca::orderBy('descricao','asc')->pluck('descricao', 'id');
+		$categorias = Categoria::orderBy('descricao','asc')->pluck('descricao', 'id');
+		$fornecedores = Fornecedor::orderBy('descricao','asc')->pluck('descricao', 'id');
 		return view('produto.create', compact('marcas', 'categorias', 'fornecedores'));
 	}
 

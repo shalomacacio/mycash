@@ -23,7 +23,7 @@ class CompraController extends Controller
 
     public function index()
     {
-        $lista = Compra::orderBy('codigo', 'asc')->paginate(5);
+        $lista = Compra::orderBy('codigo', 'desc')->paginate(5);
 
         return view('compra.index', compact('lista'));
     }
@@ -40,7 +40,7 @@ class CompraController extends Controller
         $compra->codigo = $codigo;
         $produtos = Produto::pluck('nome','id');
         $lotes = Lote::pluck('descricao','id');
-        $fornecedores = Fornecedor::pluck('descricao','id');
+        $fornecedores = Fornecedor::orderBy('descricao','asc')->pluck('descricao', 'id');
         return view('compra.create', compact('compra', 'lotes', 'fornecedores', 'produtos'));
     }
 
