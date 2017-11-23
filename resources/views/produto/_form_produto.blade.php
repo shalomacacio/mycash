@@ -37,7 +37,7 @@
 
 <div class="form-group col-xs-4">
 	{!! Form::label('descricao','Descrição') !!}
-	{!! Form::text('descricao',isset($produto->descricao)? $produto->descricao : null , ['class'=>'form-control', 'required', 'placeholder' => 'DESCRICAO' ]) !!}
+	{!! Form::text('descricao',isset($produto->descricao)? $produto->descricao : null , ['class'=>'form-control', 'placeholder' => 'DESCRICAO' ]) !!}
 </div>
 
 <div class="form-group col-xs-4">
