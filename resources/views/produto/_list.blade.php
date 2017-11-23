@@ -9,8 +9,8 @@
          <tr>
           <th><a>CÓD</a></th>
           <th><a>NOME</a></th>
-          <th><a>CATEGORIA</a></th>
           <th><a>MARCA</a></th>
+          <th><a>CATEGORIA</a></th>
           <th><a>PREÇO</a></th>
           <th><a>ESTOQUE</a></th>
           <th><a>AÇÃO</a></th>
