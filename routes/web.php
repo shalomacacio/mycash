@@ -63,13 +63,18 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::post('/delItem', 'CompraController@delItem')->name('compra.delItem');
 	Route::get('/deleteItem/{id}/{produto_id}', 'CompraController@deleteItem')->name('compra.deleteItem');
 	Route::post('/finCompra', 'CompraController@finCompra')->name('compra.finCompra');
-
 });
+
 
 Route::group(['prefix'=>'venda'],function(){
 	Route::get('/', 'VendaController@index')->name('venda.index');
 	Route::post('/store', 'VendaController@store')->name('venda.store');
 	Route::get('/{id}/edit', 'VendaController@edit')->name('venda.edit');
+	Route::get('/{id}/novaVenda', 'VendaController@novaVenda')->name('venda.novaVenda');
+
+	Route::post('/addItem', 'VendaController@addItem')->name('venda.addItem');
+	Route::post('/delItem', 'VendaController@delItem')->name('venda.delItem');
+
 	Route::get('/create', 'VendaController@create')->name('venda.create');
 	Route::put('{id}/update', 'VendaController@update')->name('venda.update');
 	Route::get('/{id}/show', 'VendaController@show')->name('venda.show');

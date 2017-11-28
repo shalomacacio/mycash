@@ -18,17 +18,12 @@
       <tbody>
         @foreach($lista as $l)
             <tr>
-            <td>{!! $l->codigo !!}</td>
-            <td>{!! $l->lote->descricao!!}</td>
-            <td>{!! $l->fornecedor->descricao!!}</td>
-            <td>{!! $l->num_pedido !!}</td>
-            @if($l->flg_concluida === 0)
-              <td><span class="label label-danger">pendente</span></td>
-            @else
-              <td><span class="label label-success">concluída</span></td>
-            @endif 
-            <td>{!! $l->produtos()->sum('subtotal') !!}</td>
-            <td><a href="{{route('compra.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+            <td>{!! $l->codigo_venda !!}</td>
+            <td>{!! $l->cliente_id !!}</td>
+            <td>{!! $l->tipo_pagamento !!}</td>
+            <td>{!! $l->total_geral !!}</td>
+            <td>{!! $l->user->name !!}</td>
+            <td><a href="{{route('venda.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
             </td>
           </tr>
         @endforeach()

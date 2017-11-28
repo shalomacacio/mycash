@@ -65,7 +65,6 @@ class CompraController extends Controller
         //$input = $request->except('_token','_method', 'produto_id','preco_compra', 'qtd', 'subtotal' );
         $input = $request->all();
         
-
         $compra = Compra::where('codigo', $input['codigo'])->first();
         $produto = Produto::find($input['produto_id']);
 

@@ -15,10 +15,10 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['url'=>[route('venda.update', $venda->id)], 'method'=>'put']) !!}
+      {!! Form::open(['url'=>[route('venda.addItem')], 'method'=>'post']) !!}
       <div class="box-body">
         <div class="row">
-           @include('venda._form_add_itens')
+            @include('venda._form_add_itens')
         </div>
          @include('venda._list_itens')
         <br>

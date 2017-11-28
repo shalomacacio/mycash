@@ -44,9 +44,9 @@
       </span>
     </a>
     <ul class="treeview-menu">
-      <li><a href="{{route('compra.index')}}"><i class="fa fa-shopping-basket"></i> Compras</a></li>
-      <li><a href="#"><i class="fa fa-cart-plus"></i> Vendas</a></li>
       <li><a href="{{route('lote.index')}}"><i class="fa fa-cubes"></i> Lote</a></li>
+      <li><a href="{{route('compra.index')}}"><i class="fa fa-shopping-basket"></i> Compras</a></li>
+      <li><a href="{{route('venda.index')}}"><i class="fa fa-cart-plus"></i> Vendas</a></li>
     </ul>
   </li>
 

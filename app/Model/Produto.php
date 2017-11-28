@@ -38,4 +38,10 @@ class Produto extends Model
         $this->belongsToMany(Compra::class, 'compra_items', 'produto_id', 'compra_id' )
                             ->withPivot('preco_compra','qtd', 'subtotal');
     }
+
+    public function vendas()
+    {
+        return $this->belongsToMany(Venda::class, 'venda_items', 'produto_id', 'venda_id')
+                            ->withPivot('preco_venda','qtd', 'desconto', 'subtotal');
+    }
 }
