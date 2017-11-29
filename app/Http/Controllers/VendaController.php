@@ -53,11 +53,9 @@ class VendaController extends Controller
 
     }
 
-        public function delItem( Request $request){
-            return dd($request);
-
-            $venda = Venda::find($request['id']);
-            $venda->produtos()->detach($request['produto_id']);
+        public function delItem( $id , $produto_id){
+            $venda = Venda::find($id);
+            $venda->produtos()->detach($produto_id);
             return redirect()->route('venda.novaVenda', $venda->id);
     }
 

@@ -73,7 +73,7 @@ Route::group(['prefix'=>'venda'],function(){
 	Route::get('/{id}/novaVenda', 'VendaController@novaVenda')->name('venda.novaVenda');
 
 	Route::post('/addItem', 'VendaController@addItem')->name('venda.addItem');
-	Route::post('/delItem', 'VendaController@delItem')->name('venda.delItem');
+	Route::get('/delItem/{id}/{produto_id}', 'VendaController@delItem')->name('venda.delItem');
 
 	Route::get('/create', 'VendaController@create')->name('venda.create');
 	Route::put('{id}/update', 'VendaController@update')->name('venda.update');
