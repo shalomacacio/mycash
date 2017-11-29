@@ -10,10 +10,13 @@ use App\Model\Venda;
 use App\Model\Produto;
 use App\Model\Cliente;
 use App\Model\VendaItem;
+use App\User;
 
 use Carbon\Carbon;
+use Session;
 use Auth;
-use App\User;
+use DB;
+
 
 
 class VendaController extends Controller
@@ -48,14 +51,26 @@ class VendaController extends Controller
        $venda = Venda::find($request['id']);
        $produto = Produto::find($request['produto_id']);
 
-       $venda->produtos()->attach($produto->id,['preco_venda'=>$request['preco_venda'],  'qtd'=> $request['qtd'], 'desconto'=> $request['desconto'],'subtotal'=>$request['subtotal']]);
-         return redirect()->route('venda.novaVenda', $venda->id);
+       DB::table('produtos')->where('id', $produto->id)->decrement('estoque', $request['qtd']);
 
+        $venda->produtos()->attach($produto->id,['preco_venda'=>$request['preco_venda'],  'qtd'=> $request['qtd'], 'desconto'=> $request['desconto'],'subtotal'=>$request['subtotal']]);
+        return redirect()->route('venda.novaVenda', $venda->id);
+        
     }
-
-        public function delItem( $id , $produto_id){
+    
+    public function delItem( $id , $produto_id){
             $venda = Venda::find($id);
-            $venda->produtos()->detach($produto_id);
+            $produto = Produto::find($produto_id);
+
+            $result = DB::table('venda_items')
+                ->where('produto_id','=', $produto_id)
+                ->where('venda_id', '=', $id )
+                ->select('qtd')
+                ->first()->qtd;
+
+            $venda->produtos()->detach($produto->id);
+
+            DB::table('produtos')->where('id', $produto_id)->increment('estoque', $result);
             return redirect()->route('venda.novaVenda', $venda->id);
     }
 
