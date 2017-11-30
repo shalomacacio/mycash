@@ -35,14 +35,9 @@
 	{!! Form::text('nome',isset($produto->nome)? $produto->nome : null , ['class'=>'form-control', 'required', 'placeholder' => 'NOME' ]) !!}
 </div>
 
-<div class="form-group col-xs-4">
+<div class="form-group col-xs-8">
 	{!! Form::label('descricao','Descrição') !!}
 	{!! Form::text('descricao',isset($produto->descricao)? $produto->descricao : null , ['class'=>'form-control', 'placeholder' => 'DESCRICAO' ]) !!}
-</div>
-
-<div class="form-group col-xs-4">
-	{!! Form::label('fornecedores[]','Fornecedores') !!}
-	{!! Form::select('fornecedores[]', isset($produto->fornecedores)?$produto->fornecedores->pluck('descricao', 'id'): $fornecedores , isset($fornecedores->fornecedores)? $fornecedores->fornecedores : null,  ['class'=>'form-control' ,'multiple'=> 'multiple', 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
 <div class="form-group col-xs-12">

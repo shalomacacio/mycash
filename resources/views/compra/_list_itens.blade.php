@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($venda->produtos as $l)
+        @foreach($compra->produtos as $l)
             <td>{!! $l->nome!!}</td>
             <td>{!! $l->pivot->preco_compra!!}</td>
             <td>{!! $l->pivot->qtd!!}</td>
