@@ -67,7 +67,7 @@ Route::group(['prefix'=>'compra'],function(){
 	Route::get('/delItem/{id}/{produto_id}', 'CompraController@delItem')->name('compra.delItem');
 	Route::get('/deleteItem/{id}/{produto_id}', 'CompraController@deleteItem')->name('compra.deleteItem');
 	Route::post('/finCompra', 'CompraController@finCompra')->name('compra.finCompra');
-	
+
 });
 
 
@@ -84,4 +84,8 @@ Route::group(['prefix'=>'venda'],function(){
 	Route::put('{id}/update', 'VendaController@update')->name('venda.update');
 	Route::get('/{id}/show', 'VendaController@show')->name('venda.show');
 
+});
+
+Route::group(['prefix'=>'relatorios'],function(){
+	Route::get('/comvenest', 'RelatorioController@relComVenEst')->name('relatorios.comvenest');
 });

@@ -74,10 +74,20 @@ class VendaController extends Controller
             return redirect()->route('venda.novaVenda', $venda->id);
     }
 
-     public function edit($id)
+
+     public function update(Request $request, $id)
     {
-       $venda = Venda::find($id);
-       return view('venda.edit', compact('venda'));
+
+        $input = $request->all();
+        $venda = Compra::findOrFail($id);
+        try{
+        $venda->fill($input)->save();
+        Session::flash('flash_success', 'alterado com sucesso');
+        return redirect()->route('venda.novaVenda', $venda->id);
+         } catch (Exception $e) {
+        Session::flash('flash_danger', 'Erro' . $e);
+        return redirect()->route('venda.novaVenda', $venda->id);
+        }
     }
 
 }

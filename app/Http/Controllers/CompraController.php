@@ -70,7 +70,7 @@ class CompraController extends Controller
             return redirect()->route('compra.novaCompra', $compra->id);
     }
 
-        public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
 
         $input = $request->all();
