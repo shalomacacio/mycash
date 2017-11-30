@@ -15,6 +15,11 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
+
+      {!! Form::open(['url'=>[route('compra.update')], 'method'=>'put']) !!}
+
+      {!! Form::close() !!}
+
       {!! Form::open(['url'=>[route('compra.finCompra')], 'method'=>'post']) !!}
       <div class="box-body">
         <div class="row">
