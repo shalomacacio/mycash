@@ -20,8 +20,8 @@
         @foreach($lista as $l)
             <tr>
             <td>{!! $l->codigo !!}</td>
-            <td>{!! $l->lote_id!!}</td>
-            <td>{!! $l->fornecedor_id!!}</td>
+            <td>{!! $l->lote->descricao!!}</td>
+            <td>{!! $l->fornecedor->descricao!!}</td>
             <td>{!! $l->num_pedido !!}</td>
             @if($l->flg_concluida === 0)
               <td><span class="label label-danger">pendente</span></td>
