@@ -31,7 +31,7 @@
                    <tr>
                     <th><a>PRODUTO</a></th>
                     <th><a>QTD COMPRA</a></th>
-                    <th><a>QTD COMPRA</a></th>
+                    <th><a>QTD VENDA</a></th>
                     <th><a>ESTOQUE </a></th>
 
                   </tr>
