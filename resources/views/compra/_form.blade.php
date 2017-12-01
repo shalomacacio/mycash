@@ -7,12 +7,12 @@
 
 <div class="form-group col-xs-3">
 	{!! Form::label('lote_id','Lote') !!}
-	{!! Form::select('lote_id', $lotes , isset($compra->lote_id)?$compra->lote_id : null ,   ['class'=>'form-control', 'placeholder' => 'Selecione...' ] ) !!}
+	{!! Form::select('lote_id', $lotes , isset($compra->lote_id)?$compra->lote_id : null ,   ['class'=>'form-control', 'required', 'placeholder' => 'Selecione...' ] ) !!}
 </div>
 
 <div class="form-group col-xs-3">
 	{!! Form::label('fornecedor_id','Fornecedor') !!}
-	{!! Form::select('fornecedor_id', $fornecedores,   isset($compra->fornecedor_id)?$compra->fornecedor_id : null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
+	{!! Form::select('fornecedor_id', $fornecedores,   isset($compra->fornecedor_id)?$compra->fornecedor_id : null,   ['class'=>'form-control' ,'required', 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
 <div class="form-group col-xs-3">
