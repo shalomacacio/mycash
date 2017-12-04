@@ -19,7 +19,8 @@ class CreateComprasTable extends Migration
             $table->unsignedInteger('lote_id')->nullable();
             $table->unsignedInteger('fornecedor_id')->nullable();
             $table->string('num_pedido')->nullable();
-             $table->tinyInteger('flg_concluida')->default(0);
+            $table->tinyInteger('flg_concluida')->default(0);
+            $table->decimal('taxa_imposto',8,2)->default(0.00);
             $table->timestamps();
         });
     }

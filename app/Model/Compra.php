@@ -11,7 +11,8 @@ class Compra extends Model
 		'codigo',
 		'lote_id',
 		'fornecedor_id',
-		'num_pedido'
+		'num_pedido',
+		'taxa_imposto'
 	];
 
 	public function lote(){

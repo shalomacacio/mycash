@@ -74,9 +74,10 @@ class CompraController extends Controller
     {
 
         $input = $request->all();
-        $compra = Compra::findOrFail($id);
+        $compra = Compra::find($id);
+    
         try{
-        $compra->fill($input)->save();
+        $compra->update($input);
         Session::flash('flash_success', 'alterado com sucesso');
         return redirect()->route('compra.novaCompra', $compra->id);
          } catch (Exception $e) {

@@ -1,6 +1,6 @@
  {!! Form::open(['url'=>[route('compra.update', $compra->id)], 'method'=>'put']) !!}
 
-<div class="form-group col-xs-3">
+<div class="form-group col-xs-2">
 	{!! Form::label('num_pedido','Pedido') !!}
 	{!! Form::text('num_pedido',  isset($compra->num_pedido)?$compra->num_pedido:null , ['class'=>'form-control', 'required', 'placeholder' => 'PEDIDO' ]) !!}
 </div>
@@ -15,7 +15,12 @@
 	{!! Form::select('fornecedor_id', $fornecedores,   isset($compra->fornecedor_id)?$compra->fornecedor_id : null,   ['class'=>'form-control' ,'required', 'placeholder' => 'Selecione...'] ) !!}
 </div>
 
-<div class="form-group col-xs-3">
+<div class="form-group col-xs-2">
+	{!! Form::label('taxa_imposto','Taxa Imposto') !!}
+	{!! Form::text('taxa_imposto',  isset($compra->taxa_imposto)?$compra->taxa_imposto:null , ['class'=>'form-control', 'required', 'placeholder' => 'TAXA IMPOSTO' ]) !!}
+</div>
+
+<div class="form-group col-xs-2">
 	{!! Form::submit('Salvar Compra', ['class'=>'btn btn-especial btn-primary form-control', 'id'=>'btn_add']) !!}
 </div>
 
