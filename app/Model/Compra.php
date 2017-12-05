@@ -12,6 +12,7 @@ class Compra extends Model
 		'lote_id',
 		'fornecedor_id',
 		'num_pedido',
+		'flg_concluida',
 		'taxa_imposto'
 	];
 

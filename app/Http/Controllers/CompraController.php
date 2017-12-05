@@ -75,6 +75,8 @@ class CompraController extends Controller
 
         $input = $request->all();
         $compra = Compra::find($id);
+
+        return dd ($input);
     
         try{
         $compra->update($input);
