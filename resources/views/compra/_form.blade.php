@@ -22,7 +22,8 @@
 
 <div class="form-group col-xs-1">
 	{!! Form::label('flg_concluida','Concluir') !!} <br>
-	{{ Form::checkbox('flg_concluida',null, isset($compra->flg_concluida)?$compra->flg_concluida:false) }}
+	{{ Form::hidden('flg_concluida', 0 ) }}
+	{!! Form::checkbox('flg_concluida', 1, isset($compra->flg_concluida)?$compra->flg_concluida:0) !!}
 </div>
 
 <div class="form-group col-xs-2">
@@ -31,6 +32,7 @@
 
 
 {!! Form::hidden('codigo', $compra->codigo ) !!}
-{!! Form::hidden('flg_concluida', 0 ) !!}
+
+
 
 {!! Form::close() !!}
