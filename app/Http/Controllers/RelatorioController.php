@@ -24,7 +24,7 @@ class RelatorioController extends Controller
  						->leftJoin('compra_items as ci', 'ci.produto_id', '=', 'p.id')
  						->leftJoin('venda_items as vi', 'vi.produto_id', '=', 'p.id')
  						->select('p.codigo_interno','p.nome', DB::raw('SUM(ci.qtd) as compra'), DB::raw('SUM(vi.qtd) as venda'),'p.estoque')
- 						->groupBy('p.codigo_interno','p.nome', 'ci.qtd','vi.qtd', 'p.estoque')
+ 						->groupBy('p.nome')
  						->get();
  		//return dd($produtos);
 

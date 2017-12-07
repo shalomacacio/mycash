@@ -36,7 +36,7 @@
                       <tr>
                       <td>{!! $p->codigo_interno!!} - {!! $p->nome!!} </td>
                       <td>{!! $p->compra!!}</td>
-                      <td>{!! $p->compra!!}</td>
+                      <td>{!! $p->venda!!}</td>
                       <td></td>
                       <td>{!! $p->estoque !!}</td>
                     </tr>
