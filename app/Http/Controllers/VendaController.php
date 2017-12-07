@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
-
 use App\Model\Venda;
 use App\Model\Produto;
 use App\Model\Cliente;

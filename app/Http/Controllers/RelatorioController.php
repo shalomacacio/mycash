@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\Produto;
 use App\Model\Compra;
 use App\Model\Venda;
+use App\User;
+use Yajra\Datatables\Datatables;
 
 use DB;
 
@@ -19,7 +21,7 @@ class RelatorioController extends Controller
     	return view('relatorios.comvenest', compact('produtos'));
     }
 */
-        public function relComVenEst(){
+       /* public function relComVenEst(){
  		$produtos = DB::table ('produtos as p')
  						->leftJoin('compra_items as ci', 'ci.produto_id', '=', 'p.id')
  						->leftJoin('venda_items as vi', 'vi.produto_id', '=', 'p.id')
@@ -29,8 +31,16 @@ class RelatorioController extends Controller
  		//return dd($produtos);
 
     	return view('relatorios.comvenest', compact('produtos'));
+    }*/
+
+    public function relComVenEst(){
+    	return view('relatorios.comvenest');
     }
 
+    public function anyData()
+    {
+    	return Datatables::of(DB::table('users'))->make(true);
+    }
 
     public function estoque(){
     	$produtos = Produto::all();

@@ -25,11 +25,22 @@
                   <thead>
                    <tr>
                     <th><a>PRODUTO</a></th>
-                    <th><a>COMPRA</a></th>
-                    <th><a>VENDA</a></th>
+                    <th><a>QTD COMPRA</a></th>
+                    <th><a>QTD VENDA</a></th>
                     <th><a>ESTOQUE </a></th>
+
                   </tr>
                 </thead>
+                <tbody>
+                  @foreach($produtos as $p)
+                      <tr>
+                      <td>{!! $p->codigo_interno!!} - {!! $p->nome!!} </td>
+                      <td><center>{!! $p->compra!!}</center></td>
+                      <td><center>{!! $p->venda!!}</center></td>
+                      <td><center>{!! $p->estoque !!}</center></td>
+                    </tr>
+                  @endforeach()
+                </tbody>
               </table>
             </div>
           </div>
@@ -58,12 +69,9 @@
       $('#compras-table').DataTable({
           processing: true,
           serverSide: true,
-          ajax: '{{ route('relatorios.anyData') }}',
+          ajax: '{!! route('relatorios.comvenest') !!}',
           columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {email: 'category', name: 'email'},
-            {data: 'created_at', name: 'created_at'}
+              { data: 'id', name: 'id' },
 
           ]
       });

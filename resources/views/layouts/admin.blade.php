@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <link href="{{ asset('plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
@@ -86,6 +88,10 @@ desired effect
 <script type="text/javascript" src="{{ URL::asset('bootstrap/js/bootstrap.min.js') }}"></script> 
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{{ URL::asset('dist/js/app.min.js') }}"></script> 
+
+<!-- DataTables  -->
+<script type="text/javascript" src="{{ URL::asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('plugins/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script> 
 
 <!-- App scripts -->
 @stack('scripts')
