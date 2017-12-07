@@ -35,10 +35,9 @@
                   @foreach($produtos as $p)
                       <tr>
                       <td>{!! $p->codigo_interno!!} - {!! $p->nome!!} </td>
-                      <td>{!! $p->compra!!}</td>
-                      <td>{!! $p->venda!!}</td>
-                      <td></td>
-                      <td>{!! $p->estoque !!}</td>
+                      <td><center>{!! $p->compra!!}</center></td>
+                      <td><center>{!! $p->venda!!}</center></td>
+                      <td><center>{!! $p->estoque !!}</center></td>
                     </tr>
                   @endforeach()
                 </tbody>
