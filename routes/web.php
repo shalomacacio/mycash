@@ -17,10 +17,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {return view('auth.login');});
 
-
-
 Route::group(['prefix'=>'produto'],function(){
 	Route::get('/', 'ProdutoController@index')->name('produto.index');
+	Route::get('/anyData', 'ProdutoController@anyData')->name('produto.anyData');
+	
 	Route::post('/store', 'ProdutoController@store')->name('produto.store');
 	Route::get('/{id}/edit', 'ProdutoController@edit')->name('produto.edit');
 	Route::get('/create', 'ProdutoController@create')->name('produto.create');
@@ -31,6 +31,8 @@ Route::group(['prefix'=>'produto'],function(){
 	Route::put('/{id}/addEstoque', 'ProdutoController@addEstoque')->name('produto.addEstoque');
 	Route::put('/{id}/addPreco', 'ProdutoController@addPreco')->name('produto.addPreco');
 	Route::post('/addCategoria', 'ProdutoController@addCategoria')->name('produto.addCategoria');
+
+
 });
 
 Route::group(['prefix'=>'fornecedor'],function(){
@@ -88,7 +90,7 @@ Route::group(['prefix'=>'venda'],function(){
 
 Route::group(['prefix'=>'relatorios'],function(){
 	Route::get('/comvenest', 'RelatorioController@relComVenEst')->name('relatorios.comvenest');
-	Route::get('/anyData', 'RelatorioController@relComVenEst')->name('relatorios.anyData');
+	Route::get('/comvenest/anyData', 'RelatorioController@anyData')->name('relatorios.anyData');
 		
 
 });

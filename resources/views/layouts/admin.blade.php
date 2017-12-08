@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
   <!-- Bootstrap 3.3.6 -->
-  <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -83,9 +83,9 @@ desired effect
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
-<script type="text/javascript" src="{{ URL::asset('plugins/jQuery/jquery-2.2.3.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('plugins/jQuery/jquery-3.2.1.min.js') }}"></script> 
 <!-- Bootstrap 3.3.6 -->
-<script type="text/javascript" src="{{ URL::asset('bootstrap/js/bootstrap.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('bootstrap/dist/js/bootstrap.min.js') }}"></script> 
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{{ URL::asset('dist/js/app.min.js') }}"></script> 
 

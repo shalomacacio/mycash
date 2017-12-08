@@ -24,10 +24,12 @@
                 <table class="table table-bordered table-hover" id="compras-table">
                   <thead>
                    <tr>
+                    <th><a>CODIGO</a></th>
                     <th><a>PRODUTO</a></th>
                     <th><a>COMPRA</a></th>
                     <th><a>VENDA</a></th>
-                    <th><a>ESTOQUE </a></th>
+                    <th><a>ESTOQUE</a></th>
+                    <th><a>AÇÕES</a></th>
                   </tr>
                 </thead>
               </table>
@@ -55,16 +57,18 @@
 <script type="text/javascript">
 
   $(function() {
+      //console.log(itens);
       $('#compras-table').DataTable({
           processing: true,
           serverSide: true,
           ajax: '{{ route('relatorios.anyData') }}',
           columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {email: 'category', name: 'email'},
-            {data: 'created_at', name: 'created_at'}
-
+            {data: 'codigo_interno', name: 'codigo_interno'},
+            {data: 'nome', name: 'nome'},
+            {data: 'compra', name: 'compra'},
+            {data: 'venda', name: 'venda'},
+            {data: 'estoque', name: 'estoque'},
+            {data: 'action', name: 'action', orderable: false, searchable: false}            
           ]
       });
   });

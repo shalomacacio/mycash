@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Model\Produto;
 use App\Model\Compra;
 use App\Model\Venda;
@@ -39,7 +40,17 @@ class RelatorioController extends Controller
 
     public function anyData()
     {
-    	return Datatables::of(DB::table('users'))->make(true);
+        $produto = Produto::find(10);
+             return datatables( DB::table ('produtos as p')
+                        ->leftJoin('compra_items as ci', 'ci.produto_id', '=', 'p.id')
+                        ->leftJoin('venda_items as vi', 'vi.produto_id', '=', 'p.id')
+                        ->select('p.id', 'p.codigo_interno','p.nome', DB::raw('SUM(ci.qtd) as compra'), DB::raw('SUM(vi.qtd) as venda'),'p.estoque')
+                        ->groupBy( 'p.id','p.codigo_interno', 'p.nome', 'ci.qtd','vi.qtd', 'p.estoque'))
+
+             ->addColumn('action', function ($data) {
+                return '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-success" title="Editar">Editar</a>';
+            })
+             ->toJson();
     }
 
     public function estoque(){

@@ -17,6 +17,7 @@ use App\Model\lote;
 use DB;
 use Session;
 use Exception;
+use Datatables;
 
 class ProdutoController extends Controller
 {
@@ -112,5 +113,54 @@ class ProdutoController extends Controller
         	return redirect()->route('produto.index');
 		 }
 	}
+
+	public function anyData(Request $request)
+    {
+/*    	return datatables( DB::table ('produtos as p')
+    		->join('marcas as m', 'm.id', 'p.marca_id')
+    		->join('categorias as c', 'c.id', 'p.categoria_id')
+    		->select('p.id','p.codigo_interno','p.nome','m.descricao as marca', 'c.descricao as categoria', 'p.preco_venda','p.estoque'))
+
+    		->filter(function ($data) {
+    			if (request()->has('nome')) {
+    				$data->where('nome', 'like', "%{request('nome')}%");
+    			}
+    		})
+
+            ->addColumn('action', function ($data) {
+            return
+            '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="'.route('produto.addEstoque', $data->id).'" class="btn btn-xs btn-danger" title="Atualizar Preço"><i class="fa fa-retweet"></i></a>
+                <a href="'.route('produto.atualizaPreco', $data->id).'" class="btn btn-xs btn-success" title="Preço"><i class="fa fa-money"></i></a>';
+            })
+             ->toJson();*/
+
+
+
+             $produtos = DB::table ('produtos as p')
+    		->join('marcas as m', 'm.id', 'p.marca_id')
+    		->join('categorias as c', 'c.id', 'p.categoria_id')
+    		->select('p.id','p.codigo_interno','p.nome','m.descricao as marca', 'c.descricao as categoria', 'p.preco_venda','p.estoque');
+
+    		return datatables()->query($produtos)
+
+    		->filter(function ($query) use ($request) {
+               if ($request->has('nome')) {
+                    $query->where('nome', 'like', "%{$request->get('nome')}%");
+            	}
+        	})
+
+    		->addColumn('action', function ($data) {
+            return
+            '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="'.route('produto.addEstoque', $data->id).'" class="btn btn-xs btn-danger" title="Atualizar Preço"><i class="fa fa-retweet"></i></a>
+                <a href="'.route('produto.atualizaPreco', $data->id).'" class="btn btn-xs btn-success" title="Preço"><i class="fa fa-money"></i></a>';
+            })
+
+
+    		->toJson();
+
+
+    }
 
 }
