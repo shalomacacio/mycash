@@ -89,7 +89,7 @@
             }
       });
   });
-ls
+
 </script>
 
 @endpush
