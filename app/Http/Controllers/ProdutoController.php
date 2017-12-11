@@ -130,7 +130,7 @@ class ProdutoController extends Controller
     		->addColumn('action', function ($data) {
             return
             '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
-                <a href="'.route('produto.estoque', $data->id).'" class="btn btn-xs btn-danger" title="Atualizar Preço"><i class="fa fa-retweet"></i></a>
+                <a href="'.route('produto.estoque', $data->id).'" class="btn btn-xs btn-danger" title="Estoque"><i class="fa fa-retweet"></i></a>
                 <a href="'.route('produto.atualizaPreco', $data->id).'" class="btn btn-xs btn-success" title="Preço"><i class="fa fa-money"></i></a>';
             })
     		
