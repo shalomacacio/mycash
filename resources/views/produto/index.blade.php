@@ -58,8 +58,6 @@
           columns: [
             {data: 'codigo_interno', name: 'codigo_interno'},
             {data: 'nome', name: 'nome'},
-            {data: 'marca', name: 'marca'},
-            {data: 'categoria', name: 'categoria'},
             {data: 'preco_venda', name: 'preco_venda'},
             {data: 'estoque', name: 'estoque'},
             {data: 'action', name: 'action', orderable: false, searchable: false}            

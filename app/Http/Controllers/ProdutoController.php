@@ -117,27 +117,23 @@ class ProdutoController extends Controller
 	public function anyData(Request $request)
     {
 
-             $produtos = DB::table ('produtos as p')
+
+             /*$produtos = DB::table ('produtos as p')
     		->join('marcas as m', 'm.id', 'p.marca_id')
     		->join('categorias as c', 'c.id', 'p.categoria_id')
-    		->select('p.id','p.codigo_interno','p.nome','m.descricao as marca', 'c.descricao as categoria', 'p.preco_venda','p.estoque');
+    		->select('p.id','p.codigo_interno','p.nome','m.descricao as marca', 'c.descricao as categoria', 'p.preco_venda','p.estoque');*/
 
-    		return datatables()->query($produtos)
+    		$produtos = DB::table ('produtos');
 
-    		->filter(function ($query) use ($request) {
-               if ($request->has('nome')) {
-                    $query->where('nome', 'like', "%{$request->get('nome')}%");
-            	}
-        	})
-
+    		return datatables()
+    		->query($produtos)
     		->addColumn('action', function ($data) {
             return
             '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-warning" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>
                 <a href="'.route('produto.estoque', $data->id).'" class="btn btn-xs btn-danger" title="Atualizar Preço"><i class="fa fa-retweet"></i></a>
                 <a href="'.route('produto.atualizaPreco', $data->id).'" class="btn btn-xs btn-success" title="Preço"><i class="fa fa-money"></i></a>';
             })
-
-
+    		
     		->toJson();
 
 
