@@ -57,6 +57,8 @@
             <div class="form-group col-xs-12 col-md-12">
               {!! Form::label('vlr_custo','Preço de Custo') !!}
               {!! Form::text('vlr_custo', null , ['class'=>'form-control', 'disabled' ]) !!}
+              
+              <label id="percentual">0</label><i class="fa fa-percent"></i>
             </div>
 
            {!! Form::close() !!}
@@ -83,6 +85,7 @@
       var vlr_custo = ((unit * aumento)/100)+unit;
 
       parseFloat ($('input[name=vlr_custo]').val(vlr_custo.toFixed(2)));
+       $("#percentual").html(aumento.toFixed(2));
 
     });
 
