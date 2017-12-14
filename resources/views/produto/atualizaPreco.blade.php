@@ -35,34 +35,28 @@
         <div class="modal-body">
            {!! Form::open() !!}
 
-            <div class="form-group col-xs-12">
-              {!! Form::label('compra_id','Compra') !!}
-
-              <div class="input-group">
-                            <div class="input-group-btn">
-                               <a href="#" class="btn btn-info" role="button"><i class="fa fa-barcode"></i></a>
-                            </div>
-              {!! Form::text('compra_id', null , ['class'=>'form-control', 'required', 'placeholder' => 'CATEGORIA' ]) !!}
-              </div>
-            </div>
-
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_compra','Vlr Compra') !!}
+              {!! Form::label('vlr_compra','Vlr Compra sem taxas') !!}
               {!! Form::text('vlr_compra', null , ['class'=>'form-control' ]) !!}
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_caixa','Custo da Caixa') !!}
-              {!! Form::text('vlr_caixa', null , ['class'=>'form-control'  ]) !!}
+              {!! Form::label('vlr_taxa','Vlr Taxas') !!}
+              {!! Form::text('vlr_taxa', null , ['class'=>'form-control'  ]) !!}
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::submit('Calcular', ['class'=>'btn btn-block btn-success btn-sm']) !!}
+              {!! Form::label('vlr_unit','Vlr Unitário') !!}
+              {!! Form::text('vlr_unit', null , ['class'=>'form-control'  ]) !!}
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('percent_aumento','% de Aumento') !!}
-              {!! Form::text('percent_aumento', null , ['class'=>'form-control', 'disabled' ]) !!}
+              {!! Form::button('Calcular', ['class'=>'btn btn-block btn-success btn-sm', 'id'=>'btn_calc']) !!}
+            </div>
+
+            <div class="form-group col-xs-12 col-md-12">
+              {!! Form::label('vlr_custo','Preço de Custo') !!}
+              {!! Form::text('vlr_custo', null , ['class'=>'form-control', 'disabled' ]) !!}
             </div>
 
            {!! Form::close() !!}
@@ -77,24 +71,18 @@
 
 <script type="text/javascript">
   
-   $('#compra_id').on('blur', function (e) {
-        e.preventDefault();
+   $('#btn_calc').on('click', function (e) {
+       // alert(e.preventDefault());
   
-        var compra_id = $('#compra_id').val();
+      var compra = parseFloat($('#vlr_compra').val());
+      var taxas = parseFloat($('#vlr_taxa').val());
 
-        //alert(compra_id);
-        
+      var aumento = (taxas/compra)*100;
+      var unit = parseFloat($('#vlr_unit').val());
 
-        $.ajax({
+      var vlr_custo = ((unit * aumento)/100)+unit;
 
-            type: "GET",
-            url: '/produto/'+ compra_id +'/searchCompra',
-            dataType: 'JSON',
-            success: function( lote ) {
-                console.log(lote);
-            }
-            
-        });
+      parseFloat ($('input[name=vlr_custo]').val(vlr_custo.toFixed(2)));
 
     });
 
