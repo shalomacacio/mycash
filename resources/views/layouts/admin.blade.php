@@ -20,6 +20,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="{{ asset('plugins/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  
+  <!-- Select2 -->
+  <link href="{{ asset('plugins/select2/select2.css') }}" rel="stylesheet">
   <!-- Theme style -->
   <link href="{{ asset('dist/css/AdminLTE.min.css') }}" rel="stylesheet">
 
@@ -88,6 +91,10 @@ desired effect
 <script type="text/javascript" src="{{ URL::asset('bootstrap/dist/js/bootstrap.min.js') }}"></script> 
 <!-- AdminLTE App -->
 <script type="text/javascript" src="{{ URL::asset('dist/js/app.min.js') }}"></script> 
+
+<!-- Select2 select2/js/i18n/pt-BR.js -->
+<script type="text/javascript" src="{{ URL::asset('plugins/select2/select2.full.min.js') }}"></script> 
+<script type="text/javascript" src="{{ URL::asset('plugins/select2/i18n/pt-BR.js') }}"></script> 
 
 <!-- DataTables  -->
 <script type="text/javascript" src="{{ URL::asset('plugins/datatables.net/js/jquery.dataTables.min.js') }}"></script> 
