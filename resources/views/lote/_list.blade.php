@@ -27,8 +27,8 @@
 
 
             <td>
-              <a href="{{route('lote.edit', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-              <a href="{{route('lote.show', $l->id)}}" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a>
+              <a href="{{route('lote.edit', $l->id)}}" class="btn btn-xs btn-warning" title="Editar" ><i class="fa fa-edit"></i></a>
+              <a href="{{route('lote.show', $l->id)}}" class="btn btn-xs btn-info" title="Compra Detalhada"><i class="fa fa-eye"></i></a>
             </td>
           </tr>
         @endforeach()

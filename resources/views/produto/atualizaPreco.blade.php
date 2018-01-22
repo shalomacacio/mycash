@@ -36,17 +36,17 @@
            {!! Form::open() !!}
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_compra','Vlr Compra sem taxas') !!}
+              {!! Form::label('vlr_compra','Vlr Compra + IOF' , ['data-toggle'=>'tooltip' ,'title'=>'Valor do Pedido já com IOF']) !!}
               {!! Form::text('vlr_compra', null , ['class'=>'form-control' ]) !!}
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_taxa','Vlr Taxas') !!}
-              {!! Form::text('vlr_taxa', null , ['class'=>'form-control'  ]) !!}
+              {!! Form::label('vlr_taxa','Vlr Taxas', ['data-toggle'=>'tooltip' ,'title'=>'Frete + Tributação ']) !!}
+              {!! Form::text('vlr_taxa', null , ['class'=>'form-control' ]) !!}
             </div>
 
             <div class="form-group col-xs-12 col-md-12">
-              {!! Form::label('vlr_unit','Vlr Unitário') !!}
+              {!! Form::label('vlr_unit','Vlr Unitário', ['data-toggle'=>'tooltip' ,'title'=>'Vlr produto que deseja calcular o custo']) !!}
               {!! Form::text('vlr_unit', null , ['class'=>'form-control'  ]) !!}
             </div>
 

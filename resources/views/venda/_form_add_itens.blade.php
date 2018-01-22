@@ -5,7 +5,7 @@
 			<div class="input-group-btn">
 				<a href="#" class="btn btn-info" role="button" data-toggle="modal" data-target="#modal-produto" ><i class="fa fa-barcode"></i></a>
 			</div>
-		{!! Form::select('produto_id', $produtos, null,   ['class'=>'form-control' , 'placeholder' => 'Selecione...'] ) !!}
+		{!! Form::select('produto_id', $produtos, null,   ['class'=>'form-control select2' , 'data-placeholder' => 'Selecione...'] ) !!}
 		</div>
 </div>
 

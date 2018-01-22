@@ -11,7 +11,7 @@
 </div>
 
 <div class="form-group col-xs-2">
-	{!! Form::label('preco_compra','Preço') !!}
+	{!! Form::label('preco_compra','Preço $', ['data-toggle'=>'tooltip' ,'title'=>'Vlr em dolar']) !!}
 	{!! Form::text('preco_compra', null,   ['class'=>'form-control' ] ) !!}
 </div>
 

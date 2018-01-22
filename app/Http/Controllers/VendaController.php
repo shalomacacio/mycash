@@ -49,8 +49,11 @@ class VendaController extends Controller
        $venda = Venda::find($request['id']);
        $produto = Produto::find($request['produto_id']);
 
-       DB::table('produtos')->where('id', $produto->id)->decrement('estoque', $request['qtd']);
-
+       //DB::table('produtos')->where('id', $produto->id)->decrement('estoque', $request['qtd']);
+       
+       //verifica estoque
+       
+       
         $venda->produtos()->attach($produto->id,['preco_venda'=>$request['preco_venda'],  'qtd'=> $request['qtd'], 'desconto'=> $request['desconto'],'subtotal'=>$request['subtotal']]);
         return redirect()->route('venda.novaVenda', $venda->id);
         

@@ -43,8 +43,6 @@
 
 <script type="text/javascript">
 
-
-
     $('#btn_add').on('click', function (e) {
         e.preventDefault();
   
