@@ -16,8 +16,8 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
             //Opcional codigo do fornecedor 
-            $table->unsignedBigInteger('codigo_fornecedor')->nullable();
-            $table->unsignedBigInteger('codigo_interno')->unique();
+            $table->text('codigo_fornecedor',30)->nullable();
+            $table->text('codigo_interno',30)->unique();
             $table->string('nome')->unique();
             $table->text('descricao')->nullable();
             $table->decimal('preco_custo', 8,2)->default(0.00);

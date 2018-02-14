@@ -17,7 +17,7 @@
       <!-- form start -->
       <div class="box-body">
         <div class="row">
-          {!! Form::open(['url'=>[route('produto.addEstoque', $produto->id)], 'method'=>'put']) !!}
+          {!! Form::open(['url'=>[route('produto.update', $produto->id)], 'method'=>'put']) !!}
             @include('produto._form_produto')
           {!! Form::close() !!}
         </div>

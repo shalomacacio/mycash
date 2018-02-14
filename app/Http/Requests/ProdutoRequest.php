@@ -26,8 +26,8 @@ class ProdutoRequest extends FormRequest
         return [
             'categoria_id'      =>  'required',
             'marca_id'          =>  'required',
-            'codigo_interno'    =>  'required|numeric|unique:produtos',
-            'nome'              =>  'required|min:2|max:255|unique:produtos',
+            'codigo_interno'    =>  'required',
+            'nome'              =>  'required|min:2|max:255',
         ];
     }
 }

@@ -30,6 +30,7 @@ Route::group(['prefix'=>'produto'],function(){
 	Route::post('/addMarca', 'ProdutoController@addMarca')->name('produto.addMarca');
 	Route::put('/{id}/addEstoque', 'ProdutoController@addEstoque')->name('produto.addEstoque');
 	Route::put('/{id}/addPreco', 'ProdutoController@addPreco')->name('produto.addPreco');
+	Route::put('/{id}/update', 'ProdutoController@update')->name('produto.update');
 	Route::post('/addCategoria', 'ProdutoController@addCategoria')->name('produto.addCategoria');
 
 
