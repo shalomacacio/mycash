@@ -11,7 +11,7 @@
     <!-- general form elements -->
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title"> Venda : {{isset($venda->codigo_venda)? $venda->codigo_venda : null }}</h3>
+        <h3 class="box-title"> PEDIDO : {{isset($venda->codigo_venda)? $venda->codigo_venda : null }}</h3>
       </div>
       <!-- /.box-header -->
       <!-- form start -->

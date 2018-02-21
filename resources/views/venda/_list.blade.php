@@ -1,13 +1,13 @@
 <div class="box">
   <div class="box-header">
-    <h3 class="box-title">Vendas </h3>
+    <h3 class="box-title">PEDIDOS </h3>
   </div>
   <div class="box-body">
     <div class="table-responsive">
       <table class="table table-bordered table-striped" id="compras-table">
         <thead>
          <tr>
-          <th><a>CODIGO</a></th>
+          <th><a>CODIGO PEDIDO</a></th>
           <th><a>CLIENTE</a></th>
           <th><a>TIPO PAGAMENTO</a></th>
           <th><a>TOTAL </a></th>
@@ -23,7 +23,11 @@
             <td>{!! $l->tipo_pagamento !!}</td>
             <td>{!! $l->total_geral !!}</td>
             <td>{!! $l->user->name !!}</td>
-            <td><a href="{{route('venda.novaVenda', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+            <td>
+              <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-success"><i class="fa fa-check"></i></a>
+              <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
+              <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+
             </td>
           </tr>
         @endforeach()

@@ -12,7 +12,7 @@
 	<div class="row">
 	  <div class="col-md-3 col-sm-6 col-xs-12 pull-right ">
 	    {!! Form::open(['url'=>[route('venda.create')] ,'method'=>'get']) !!}
-	      {!! Form::submit('PDV', ['class'=>'btn btn-block btn-success btn-sm']) !!}
+	      {!! Form::submit('NOVO PEDIDO', ['class'=>'btn btn-block btn-success btn-sm']) !!}
 	    {!! Form::close() !!}
 	  </div>
 	</div>

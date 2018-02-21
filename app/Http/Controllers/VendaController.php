@@ -36,10 +36,11 @@ class VendaController extends Controller
         $venda->codigo_venda = $codigo_venda;
         $venda->user_id = Auth::User()->id;
         $venda->save();
-        return redirect()->route('venda.novaVenda', $venda->id);
+        return redirect()->route('venda.novoPedido', $venda->id);
     }
 
-    public function novaVenda($id){ 
+
+    public function novoPedido($id){ 
         $venda = Venda::find($id);    
         $produtos = Produto::pluck('nome', 'id');
         return view('venda.pdv', compact('venda', 'produtos'));
@@ -49,14 +50,15 @@ class VendaController extends Controller
        $venda = Venda::find($request['id']);
        $produto = Produto::find($request['produto_id']);
 
-       //DB::table('produtos')->where('id', $produto->id)->decrement('estoque', $request['qtd']);
-       
-       //verifica estoque
-       
-       
+       if($request['qtd'] > $produto->estoque){
+         Session::flash('flash_danger', 'estoque insuficiente'  );
+         return redirect()->route('venda.novoPedido', $venda->id);
+       }else{
+        DB::table('produtos')->where('id', $produto->id)->decrement('estoque', $request['qtd']);
+
         $venda->produtos()->attach($produto->id,['preco_venda'=>$request['preco_venda'],  'qtd'=> $request['qtd'], 'desconto'=> $request['desconto'],'subtotal'=>$request['subtotal']]);
-        return redirect()->route('venda.novaVenda', $venda->id);
-        
+        return redirect()->route('venda.novoPedido', $venda->id);
+       }  
     }
     
     public function delItem( $id , $produto_id){
@@ -72,7 +74,23 @@ class VendaController extends Controller
             $venda->produtos()->detach($produto->id);
 
             DB::table('produtos')->where('id', $produto_id)->increment('estoque', $result);
-            return redirect()->route('venda.novaVenda', $venda->id);
+            return redirect()->route('venda.novoPedido', $venda->id);
+    }
+
+    public function excluirPedido($id){ 
+        $venda = Venda::find($id);
+        //verifica se existem itens no pedido 
+        //se houver alerta para excluir  ex "exclua todos os itens antes de cancelar a venda"
+        //senao exclui a venda
+        return view('venda.pdv', compact('venda', 'produtos'));
+    }
+
+    public function finalizarVenda($id){ 
+        $venda = Venda::find($id);
+        //abre um formulario com os campos a serem preenchidos
+        //preenche os campos
+        //finaliza a venda.
+        return view('venda.pdv', compact('venda', 'produtos'));
     }
 
 
@@ -84,10 +102,10 @@ class VendaController extends Controller
         try{
         $venda->fill($input)->save();
         Session::flash('flash_success', 'alterado com sucesso');
-        return redirect()->route('venda.novaVenda', $venda->id);
+        return redirect()->route('venda.novoPedido', $venda->id);
          } catch (Exception $e) {
         Session::flash('flash_danger', 'Erro' . $e);
-        return redirect()->route('venda.novaVenda', $venda->id);
+        return redirect()->route('venda.novoPedido', $venda->id);
         }
     }
 
