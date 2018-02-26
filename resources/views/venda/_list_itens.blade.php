@@ -1,5 +1,6 @@
       
-      <table class="table table-bordered table-striped" id="itens-table">
+      <table class="table table-bordered table-striped" id="itens-table"  
+      >
         <thead>
          <tr>
           <th><a>PRODUTO</a></th>
@@ -21,7 +22,19 @@
               <a href="{{route('venda.delItem', [$venda->id, $l->id])}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
             </td>
           </tr>
+      
         @endforeach()
+
+        @if($venda->produtos->isNotEmpty())
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>test</td>
+          </tr>
+        @endif
 
       </tbody>
     </table>

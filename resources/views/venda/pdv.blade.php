@@ -34,9 +34,9 @@
 
 <script type="text/javascript">
 
-        $(".select2").select2({
+      $(".select2").select2({
           "language": "pt-BR",
-      })
+      });
 
       $('input[name=qtd]').blur(function() {
 
@@ -54,9 +54,12 @@
 
        });
 
-
-
-
+      $('select[id=produto_id]').change(function() {
+        var precoProduto = $(this).val();
+        $('#preco_venda').val(precoProduto);
+        $('#qtd').val('0');
+        $('#desconto').val('0');
+      });
 
 </script>
 

@@ -42,7 +42,7 @@ class VendaController extends Controller
 
     public function novoPedido($id){ 
         $venda = Venda::find($id);    
-        $produtos = Produto::pluck('nome', 'id');
+        $produtos = Produto::pluck('nome', 'preco_venda');
         return view('venda.pdv', compact('venda', 'produtos'));
     }
 
