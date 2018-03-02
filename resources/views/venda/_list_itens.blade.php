@@ -32,7 +32,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td>test</td>
+              <td> <a href="{{ URL::route('venda.index') }}" class="btn btn-danger"> Fechar Pedido</a></td>
           </tr>
         @endif
 

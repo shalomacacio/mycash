@@ -31,7 +31,7 @@
 
 
 <div class="form-group col-xs-2">
-	{!! Form::submit('Adicionar', ['class'=>'btn btn-especial btn-success form-control', 'id'=>'btn_add']) !!}
+	{!! Form::submit('+', ['class'=>'btn btn-especial btn-primary form-control', 'id'=>'btn_add']) !!}
 </div>
 
 {!! Form::hidden('id', $venda->id ) !!}
