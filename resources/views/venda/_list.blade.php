@@ -8,8 +8,7 @@
         <thead>
          <tr>
           <th><a>CODIGO PEDIDO</a></th>
-          <th><a>CLIENTE</a></th>
-          <th><a>TIPO PAGAMENTO</a></th>
+          <th><a>QTD ÍTENS</a></th>
           <th><a>TOTAL </a></th>
            <th><a>VENDEDOR</a></th>
           <th><a>AÇÃO</a></th>
@@ -19,10 +18,9 @@
         @foreach($lista as $l)
             <tr>
             <td>{!! $l->codigo_venda !!}</td>
-            <td>{!! $l->cliente_id !!}</td>
-            <td>{!! $l->tipo_pagamento !!}</td>
-            <td>{!! $l->total_geral !!}</td>
-            <td>{!! $l->user->name !!}</td>
+            <td>{!! $l->produtos->count()!!}</td>
+            <td>{!! $l->produtos()->sum('subtotal')!!}</td>
+            <td color='#ff0606'>{!! $l->user->name !!}</td>
             <td>
               <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-success"><i class="fa fa-check"></i></a>
               <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>

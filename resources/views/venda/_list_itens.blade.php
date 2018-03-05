@@ -27,12 +27,19 @@
 
         @if($venda->produtos->isNotEmpty())
             <tr>
+              <td class="text-danger"><h1>TOTAL</h1></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="text-danger"><h1>{!! $venda->produtos()->sum('subtotal')!!}</h1></td>
+          </tr>
+          <tr>
               <td></td>
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
-              <td> <a href="{{ URL::route('venda.index') }}" class="btn btn-danger"> Fechar Pedido</a></td>
+              <td><</td>
+              <td> <a href="{{ URL::route('venda.index') }}" class="btn btn-success"> Fechar Pedido</a></td>
           </tr>
         @endif
 
