@@ -88,6 +88,7 @@ Route::group(['prefix'=>'venda'],function(){
 	Route::get('/create', 'VendaController@create')->name('venda.create');
 	Route::put('{id}/update', 'VendaController@update')->name('venda.update');
 	Route::get('/{id}/show', 'VendaController@show')->name('venda.show');
+	Route::get('/{id}/finalizarVenda', 'VendaController@finalizarVenda')->name('venda.finalizarVenda');
 
 });
 

@@ -90,7 +90,7 @@ class VendaController extends Controller
         //abre um formulario com os campos a serem preenchidos
         //preenche os campos
         //finaliza a venda.
-        return view('venda.pdv', compact('venda', 'produtos'));
+        return view('venda.finalizar_venda', compact('venda'));
     }
 
 
