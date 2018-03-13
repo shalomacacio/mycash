@@ -15,7 +15,7 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['url'=>[route('venda.store')], 'method'=>'post']) !!}
+      {!! Form::open(['url'=>[route('venda.update', $venda->id)], 'method'=>'put']) !!}
       <div class="box-body">
         <div class="row">
             @include('venda._form_fin_venda')

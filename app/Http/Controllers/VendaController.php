@@ -98,7 +98,7 @@ class VendaController extends Controller
     {
 
         $input = $request->all();
-        $venda = Compra::findOrFail($id);
+        $venda = Venda::findOrFail($id);
         try{
         $venda->fill($input)->save();
         Session::flash('flash_success', 'alterado com sucesso');
