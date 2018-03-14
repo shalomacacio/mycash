@@ -80,15 +80,17 @@ Route::group(['prefix'=>'venda'],function(){
 	Route::get('/{id}/edit', 'VendaController@edit')->name('venda.edit');
 	//Route::get('/{id}/novaVenda', 'VendaController@novaVenda')->name('venda.novaVenda');
 	Route::get('/{id}/novoPedido', 'VendaController@novoPedido')->name('venda.novoPedido');
-	Route::get('/{id}/excluirPedido', 'VendaController@excluirPedido')->name('venda.excluirPedido');
+	Route::put('/{id}/excluirPedido', 'VendaController@excluirPedido')->name('venda.excluirPedido');
 
 	Route::post('/addItem', 'VendaController@addItem')->name('venda.addItem');
 	Route::get('/delItem/{id}/{produto_id}', 'VendaController@delItem')->name('venda.delItem');
 
 	Route::get('/create', 'VendaController@create')->name('venda.create');
 	Route::put('{id}/update', 'VendaController@update')->name('venda.update');
+
 	Route::get('/{id}/show', 'VendaController@show')->name('venda.show');
 	Route::get('/{id}/finalizarVenda', 'VendaController@finalizarVenda')->name('venda.finalizarVenda');
+
 
 });
 

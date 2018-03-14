@@ -15,7 +15,7 @@
       </div>
       <!-- /.box-header -->
       <!-- form start -->
-      {!! Form::open(['url'=>[route('venda.update', $venda->id)], 'method'=>'put']) !!}
+      {!! Form::open(['url'=>[route('venda.update', $venda->id)], 'method'=>'PUT']) !!}
       <div class="box-body">
         <div class="row">
             @include('venda._form_fin_venda')
@@ -51,9 +51,7 @@
     var desconto = parseInt($('input[name=desconto]').val());
     var total = parseInt($('input[name=total_geral]').val());  
 
-     alert(desconto);
-
-    //var totalGeral = total - desconto;
+    var totalGeral = total - desconto;
    // parseInt($('input[name=total_geral]').val(totalGeral.toFixed(2)));
     parseFloat ($('input[name=total_geral]').val(totalGeral.toFixed(2)));
 

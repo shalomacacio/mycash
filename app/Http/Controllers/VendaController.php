@@ -80,6 +80,12 @@ class VendaController extends Controller
     public function excluirPedido($id){ 
         $venda = Venda::find($id);
         //verifica se existem itens no pedido 
+        if($venda->venda_items){
+             Session::flash('flash_alert', 'exclua os itens do pedido');
+        }else{
+             Session::flash('flash_alert', 'teste');
+        }
+        
         //se houver alerta para excluir  ex "exclua todos os itens antes de cancelar a venda"
         //senao exclui a venda
         return view('venda.pdv', compact('venda', 'produtos'));
@@ -96,17 +102,18 @@ class VendaController extends Controller
 
      public function update(Request $request, $id)
     {
-
-        $input = $request->all();
-        $venda = Venda::findOrFail($id);
+        $input = $request->except('_method', '_token');
+        $venda = Venda::find($id);
+    
         try{
-        $venda->fill($input)->save();
+        $venda->update($input);
         Session::flash('flash_success', 'alterado com sucesso');
-        return redirect()->route('venda.novoPedido', $venda->id);
+        return redirect()->route('venda.index', $venda->id);
          } catch (Exception $e) {
         Session::flash('flash_danger', 'Erro' . $e);
-        return redirect()->route('venda.novoPedido', $venda->id);
+        return redirect()->route('venda.index', $venda->id);
         }
     }
+ 
 
 }

@@ -24,7 +24,7 @@
             <td>
               <a href="{{route('venda.finalizarVenda', $l->id)}}" class="btn btn-xs btn-success"><i class="fa fa-check"></i></a>
               <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-warning"><i class="fa fa-edit"></i></a>
-              <a href="{{route('venda.novoPedido', $l->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+              <a href="{{route('venda.excluirPedido', $l->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 
             </td>
           </tr>
