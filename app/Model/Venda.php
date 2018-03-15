@@ -14,8 +14,9 @@ class Venda extends Model
 		'desconto',
 		'total_geral',
 		'flg_ativo',
-		'motivo_cancelamento',
 		'num_parcelas',
+		'situacao',
+		'motivo',
 		'cliente'
 	];
 

@@ -18,7 +18,9 @@ class CreateVendasTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('cliente_id')->nullable();
             $table->unsignedBigInteger('codigo_venda')->unique();
-            $table->string('tipo_pagamento')->nullable();
+            $table->string('tipo_pagamento')->nullable()->default(null);
+            $table->string('situacao')->nullable()->default(null);
+            $table->string('motivo')->nullable()->default(null);
             $table->decimal('desconto',8,2)->default(0);
             $table->decimal('total_geral',8,2)->default(0.00);
             $table->tinyInteger('flg_ativo')->default(1);

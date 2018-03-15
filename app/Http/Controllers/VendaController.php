@@ -79,16 +79,20 @@ class VendaController extends Controller
 
     public function excluirPedido($id){ 
         $venda = Venda::find($id);
+        // return dd($venda);
         //verifica se existem itens no pedido 
-        if($venda->venda_items){
-             Session::flash('flash_alert', 'exclua os itens do pedido');
-        }else{
-             Session::flash('flash_alert', 'teste');
-        }
+         if($venda->produtos->count() <= 0){
+            $venda->flg_ativo = 0;
+            $venda->situacao = "can";
+            $venda->update();
+            Session::flash('flash_success', 'inativado com sucesso');
+            return redirect()->route('venda.index', $venda->id);
+         }else {
+            Session::flash('flash_danger', 'exclua todos os itens da venda');
+            return redirect()->route('venda.index', $venda->id);
+         }
+
         
-        //se houver alerta para excluir  ex "exclua todos os itens antes de cancelar a venda"
-        //senao exclui a venda
-        return view('venda.pdv', compact('venda', 'produtos'));
     }
 
     public function finalizarVenda($id){ 
