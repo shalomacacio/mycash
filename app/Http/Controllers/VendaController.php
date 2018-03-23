@@ -26,7 +26,7 @@ class VendaController extends Controller
 
     public function index()
     {
-        $lista = Venda::orderBy('codigo_venda', 'asc')->paginate(5);
+        $lista = Venda::where('flg_ativo',1)->orderBy('codigo_venda', 'asc')->paginate(5);
         return view('venda.index', compact('lista'));
     }
 

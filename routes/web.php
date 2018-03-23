@@ -94,8 +94,12 @@ Route::group(['prefix'=>'venda'],function(){
 
 });
 
+
+
 Route::group(['prefix'=>'relatorios'],function(){
 	Route::get('/comvenest', 'RelatorioController@relComVenEst')->name('relatorios.comvenest');
+	Route::get('/vendasPeriodo', 'RelatorioController@vendasPeriodo')->name('relatorios.vendasPeriodo');
+	Route::get('/getVendasPeriodo', 'RelatorioController@getVendasPeriodo')->name('relatorios.getVendasPeriodo');
 	Route::get('/comvenest/anyData', 'RelatorioController@anyData')->name('relatorios.anyData');
 		
 

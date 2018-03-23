@@ -58,7 +58,7 @@
     </a>
     <ul class="treeview-menu">
       <li><a href="{{route('relatorios.comvenest')}}"><i class="fa fa-certificate"></i> Compra/Venda/Estoque</a></li>
-      <li><a href="#"><i class="fa fa-certificate"></i> Vendas </a></li>
+      <li><a href="{{route('relatorios.vendasPeriodo')}}"><i class="fa fa-certificate"></i> Vendas por Período</a></li>
     </ul>
   </li>
 

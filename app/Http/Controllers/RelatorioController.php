@@ -15,25 +15,6 @@ use DB;
 
 class RelatorioController extends Controller
 {
-    
-
-/*    public function relComVenEst(){
- 		$produtos = Produto::orderBy('nome')->get();
-    	return view('relatorios.comvenest', compact('produtos'));
-    }
-*/
-       /* public function relComVenEst(){
- 		$produtos = DB::table ('produtos as p')
- 						->leftJoin('compra_items as ci', 'ci.produto_id', '=', 'p.id')
- 						->leftJoin('venda_items as vi', 'vi.produto_id', '=', 'p.id')
- 						->select('p.codigo_interno','p.nome', DB::raw('SUM(ci.qtd) as compra'), DB::raw('SUM(vi.qtd) as venda'),'p.estoque')
- 						->groupBy( 'p.codigo_interno', 'p.nome', 'ci.qtd','vi.qtd', 'p.estoque')
- 						->get();
- 		//return dd($produtos);
-
-    	return view('relatorios.comvenest', compact('produtos'));
-    }*/
-
     public function relComVenEst(){
     	return view('relatorios.comvenest');
     }
@@ -51,6 +32,19 @@ class RelatorioController extends Controller
                 return '<a href="'.route('produto.edit', $data->id).'" class="btn btn-xs btn-success" title="Editar">Editar</a>';
             })
              ->toJson();
+    }
+
+    public function vendasPeriodo(){
+        return view('relatorios.vendas_periodo');
+    }
+
+        public function getVendasPeriodo(Request $request){
+            $vendas = DB::table('vendas')
+                    ->whereBetween('created_at', [$request['inicio'], $request['fim']])
+                    ->where('flg_ativo', 1)
+                    ->get();
+
+        return view('relatorios.vendas_periodo', compact('vendas'));
     }
 
     public function estoque(){
