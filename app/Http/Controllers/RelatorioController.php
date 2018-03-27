@@ -12,6 +12,7 @@ use App\User;
 use Yajra\Datatables\Datatables;
 
 use DB;
+use Carbon\Carbon;
 
 class RelatorioController extends Controller
 {
@@ -39,10 +40,15 @@ class RelatorioController extends Controller
     }
 
         public function getVendasPeriodo(Request $request){
+
+            $inicio =  new Carbon( $request['inicio']);
+            $fim =  new Carbon( $request['fim']);
+
             $vendas = DB::table('vendas')
-                    ->whereBetween('created_at', [$request['inicio'], $request['fim']])
+                    ->whereBetween('created_at', [$inicio, $fim])
                     ->where('flg_ativo', 1)
                     ->get();
+                    //return dd($vendas);
 
         return view('relatorios.vendas_periodo', compact('vendas'));
     }

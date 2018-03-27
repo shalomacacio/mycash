@@ -32,7 +32,8 @@
 
           {!! Form::close() !!}
     </div>
-@empty($vendas)
+@isset($vendas)
+
     <div class="row">
       <div class="box">
         <div class="box-header">
@@ -65,7 +66,7 @@
           </div>
           </div>
 
- @endempty
+ @endisset
 
         </div>
         <br>

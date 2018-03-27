@@ -7,6 +7,7 @@
       <table class="table table-bordered table-striped" id="compras-table">
         <thead>
          <tr>
+          <th><a>DATA</a></th>
           <th><a>CODIGO PEDIDO</a></th>
           <th><a>QTD ÍTENS</a></th>
           <th><a>TOTAL </a></th>
@@ -17,6 +18,7 @@
       <tbody>
         @foreach($lista as $l)
             <tr>
+              <td>{!! $l->created_at !!}</td>
             <td>{!! $l->codigo_venda !!}</td>
             <td>{!! $l->produtos->count()!!}</td>
             <td>{!! $l->produtos()->sum('subtotal')!!}</td>
