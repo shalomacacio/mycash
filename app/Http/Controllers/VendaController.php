@@ -26,7 +26,10 @@ class VendaController extends Controller
 
     public function index()
     {
-        $lista = Venda::where('flg_ativo',1)->orderBy('codigo_venda', 'asc')->paginate(5);
+        $lista = Venda::where('flg_ativo',1)
+                        ->whereNotin('situacao', ['can','concl'])
+                        ->orderBy('codigo_venda', 'desc')
+                        ->paginate(5);
         return view('venda.index', compact('lista'));
     }
 
@@ -104,7 +107,23 @@ class VendaController extends Controller
     }
 
 
-     public function update(Request $request, $id)
+        public function concluirVenda(Request $request, $id)
+    {
+        $input = $request->except('_method', '_token');
+        $venda = Venda::find($id);
+        $venda->situacao = "concl";
+    
+        try{
+        $venda->update($input);
+        Session::flash('flash_success', 'concluida com sucesso');
+        return redirect()->route('venda.index');
+         } catch (Exception $e) {
+        Session::flash('flash_danger', 'Erro' . $e);
+        return redirect()->route('venda.index');
+        }
+    }
+
+    public function update(Request $request, $id)
     {
         $input = $request->except('_method', '_token');
         $venda = Venda::find($id);

@@ -90,6 +90,7 @@ Route::group(['prefix'=>'venda'],function(){
 
 	Route::get('/{id}/show', 'VendaController@show')->name('venda.show');
 	Route::get('/{id}/finalizarVenda', 'VendaController@finalizarVenda')->name('venda.finalizarVenda');
+	Route::put('{id}/concluirVenda', 'VendaController@concluirVenda')->name('venda.concluirVenda');
 
 
 });

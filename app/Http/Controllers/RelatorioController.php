@@ -42,11 +42,14 @@ class RelatorioController extends Controller
         public function getVendasPeriodo(Request $request){
 
             $inicio =  new Carbon( $request['inicio']);
+            /*$fim =  new Carbon( $request['fim']);*/
             $fim =  new Carbon( $request['fim']);
+            $fim->setTime(23,59,59);
 
             $vendas = DB::table('vendas')
                     ->whereBetween('created_at', [$inicio, $fim])
                     ->where('flg_ativo', 1)
+                    ->where('situacao', 'concl')
                     ->get();
                     //return dd($vendas);
 
