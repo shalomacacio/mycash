@@ -48,18 +48,37 @@
                     <th><a>CODIGO</a></th>
                     <th><a>TIPO PAGAMENTO</a></th>
                     <th><a>TOTAL</a></th>
-                    <th><a>AÇÕES</a></th>
+                    <th><a>LUCRO</a></th>
                   </tr>
                 </thead>
                 <tbody>
-                  
                   @foreach($vendas as $v)
+                  <tr>
                       <td>{!! $v->codigo_venda !!}</td>
-                      <td>{!! $v->tipo_pagamento !!}</td>
+                      <td>
+                          @switch($v->tipo_pagamento)
+                          @case('V')
+                          a vista
+                          @break
+                           @case('D')
+                          débito
+                          @break
+                           @case('C')
+                          credito {!! $v->num_parcelas !!} X
+                          @break
+                          @endswitch
+                      </td>
+
                       <td>{!! $v->total_geral !!}</td>
+                     
                     </tr>
                   @endforeach()
-                 
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td><h1 color='#ff0606'>{!! number_format($vendas->sum('total_geral'), 2) !!}</h1></td>
+
+                    </tr>
                 </tbody>
               </table>
             </div>
