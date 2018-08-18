@@ -54,12 +54,32 @@
 
        });
 
-      $('select[id=produto_id]').change(function() {
+      /**$('select[id=produto_id]').change(function() {
+
         var precoProduto = $(this).val();
         $('#preco_venda').val(precoProduto);
         $('#qtd').val('0');
         $('#desconto').val('0');
-      });
+      });*/
+
+    //atualiza o preço VIA AJAX
+    $('select[id=produto_id]').change(function() {
+        $.ajax({
+          headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: "GET",
+            data: {produto_id: $("#produto_id").val()},
+            url: "/venda/ajaxprod",
+            datatype: "json",
+            success: function(preco) {
+              //console.log(preco);
+              //alert(preco);
+              $('#preco_venda').val(preco);
+              $('#qtd').val('0');
+              $('#desconto').val('0');
+            }
+
+        });
+    });
 
 </script>
 

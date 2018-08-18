@@ -92,6 +92,8 @@ Route::group(['prefix'=>'venda'],function(){
 	Route::get('/{id}/finalizarVenda', 'VendaController@finalizarVenda')->name('venda.finalizarVenda');
 	Route::put('{id}/concluirVenda', 'VendaController@concluirVenda')->name('venda.concluirVenda');
 
+	Route::get('/ajaxprod', 'VendaController@ajaxprod')->name('venda.ajaxprod');
+
 
 });
 

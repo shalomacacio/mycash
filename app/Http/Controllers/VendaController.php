@@ -16,7 +16,6 @@ use Auth;
 use DB;
 
 
-
 class VendaController extends Controller
 {
 
@@ -42,10 +41,9 @@ class VendaController extends Controller
         return redirect()->route('venda.novoPedido', $venda->id);
     }
 
-
     public function novoPedido($id){ 
         $venda = Venda::find($id);    
-        $produtos = Produto::pluck('nome', 'preco_venda');
+        $produtos = Produto::pluck('nome', 'id');
         return view('venda.pdv', compact('venda', 'produtos'));
     }
 
@@ -93,9 +91,7 @@ class VendaController extends Controller
          }else {
             Session::flash('flash_danger', 'exclua todos os itens da venda');
             return redirect()->route('venda.index', $venda->id);
-         }
-
-        
+         }        
     }
 
     public function finalizarVenda($id){ 
@@ -105,7 +101,6 @@ class VendaController extends Controller
         //finaliza a venda.
         return view('venda.finalizar_venda', compact('venda'));
     }
-
 
         public function concluirVenda(Request $request, $id)
     {
@@ -137,6 +132,11 @@ class VendaController extends Controller
         return redirect()->route('venda.index', $venda->id);
         }
     }
- 
 
+    public function ajaxprod(Request $request){
+        //$id = $request['produto_id'];
+        $produto = Produto::find($request['produto_id']);
+        //$json = json_enconde($produto->preco_venda);
+        return response()->json($produto->preco_venda);
+    }
 }
