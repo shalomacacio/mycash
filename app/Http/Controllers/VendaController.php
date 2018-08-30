@@ -26,9 +26,9 @@ class VendaController extends Controller
     public function index()
     {
         $lista = Venda::where('flg_ativo',1)
-                        ->whereNotin('situacao', ['can','concl'])
+                        ->where('situacao', null)
                         ->orderBy('codigo_venda', 'desc')
-                        ->paginate(5);
+                        ->paginate(5);              
         return view('venda.index', compact('lista'));
     }
 
