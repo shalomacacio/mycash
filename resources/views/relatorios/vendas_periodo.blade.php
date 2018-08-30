@@ -48,7 +48,7 @@
                     <th><a>CODIGO</a></th>
                     <th><a>TIPO PAGAMENTO</a></th>
                     <th><a>TOTAL</a></th>
-                    <th><a>LUCRO</a></th>
+
                   </tr>
                 </thead>
                 <tbody>
